@@ -10,7 +10,7 @@
         android:id="@+id/editPlayers_player1"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/rect"
         android:gravity="center"
         android:text="Tommy"
@@ -24,15 +24,15 @@
         android:id="@+id/editPlayers_player2"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/rect"
         android:gravity="center"
         android:text="Tommy"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
+        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPlayers_player1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/editPlayers_player3"
@@ -41,12 +41,12 @@
         android:background="@drawable/rect"
         android:gravity="center"
         android:text="Tommy"
-        android:layout_marginTop="40dp"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
+        android:layout_marginTop="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPlayers_player2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/editPlayers_player4"
@@ -56,11 +56,11 @@
         android:gravity="center"
         android:text="Tommy"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="40dp"
         android:textSize="25sp"
+        android:layout_marginTop="420dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPlayers_player3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/addPlayerBtn"
@@ -70,11 +70,11 @@
         android:gravity="center"
         android:text="Add Player"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="40dp"
         android:textSize="25sp"
+        android:layout_marginTop="540dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPlayers_player4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/editPlayer_delete_player1_btn"
