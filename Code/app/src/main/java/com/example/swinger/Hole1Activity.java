@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hole1Activity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +22,11 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
     private Button par6;
     private String playerName;
     private TextView player1;
+    private EditText p1Hits;
+    private TextView p1score;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,37 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         par6.setOnClickListener(this);
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
+
+        p1Hits = findViewById(R.id.player1Hits);
+        p1score = findViewById(R.id.player1Score);
+
+        p1Hits.addTextChangedListener(new TextWatcher() {
+
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (_ignore)
+                    return;
+
+                _ignore = true;
+
+             int p1Score =  Integer.parseInt(p1score.getText().toString());
+             p1score.setText(p1Score - score());
+
+                _ignore = false;
+            }
+        });
+
     }
 
     @Override
@@ -84,5 +123,36 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
             btn.setBackgroundResource(0);
             btn.setTextColor(getColor(R.color.white));
         }
+    }
+
+    public int score(){
+
+        EditText p1Hits = findViewById(R.id.player1Hits);
+        TextView p1Ttotal = findViewById(R.id.player1Score);
+
+        int p1 = Integer.parseInt((p1Hits.getText().toString()));
+        int total = 0;
+
+        if(par1.isPressed()){
+            total = -1;
+        }
+        else if(par2.isPressed()){
+            total = -2;
+        }
+        else if(par3.isPressed()){
+            total = -3;
+        }
+        else if(par4.isPressed()){
+            total = -4;
+        }
+        else if(par5.isPressed()){
+            total = -5;
+        }
+        else if(par6.isPressed()){
+            total = -6;
+        }
+
+        return total;
+
     }
 }
