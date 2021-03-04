@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Hole1Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,7 +17,8 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
     private Button par4;
     private Button par5;
     private Button par6;
-
+    private String playerName;
+    private TextView player1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         par4 = findViewById(R.id.par4Btn);
         par5 = findViewById(R.id.par5Btn);
         par6 = findViewById(R.id.par6Btn);
+        player1 = findViewById(R.id.playerOne);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
         par1.setOnClickListener(this);
         par2.setOnClickListener(this);
@@ -35,6 +38,8 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         par4.setOnClickListener(this);
         par5.setOnClickListener(this);
         par6.setOnClickListener(this);
+        playerName = getIntent().getStringExtra("playerName");
+        player1.setText(playerName);
     }
 
     @Override
