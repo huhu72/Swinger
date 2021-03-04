@@ -26,7 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPlayersBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/editPlayersBtn"
+        android:onClick="save"/>
 
     <Button
         android:id="@+id/editPlayersBtn"
@@ -39,5 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="200dp"
+        android:onClick="gotoEditPlayer"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

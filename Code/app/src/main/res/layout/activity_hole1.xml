@@ -127,13 +127,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_fast_forward" />
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <Button
+        android:id="@+id/hole1_settings_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings" />
+        android:onClick="openSettings"/>
 
     <ImageView
         android:id="@+id/imageView6"
