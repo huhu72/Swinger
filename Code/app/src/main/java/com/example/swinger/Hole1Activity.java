@@ -85,4 +85,8 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
             btn.setTextColor(getColor(R.color.white));
         }
     }
+    public void openSettings(View view){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 }
