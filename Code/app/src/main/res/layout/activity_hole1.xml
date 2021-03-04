@@ -7,7 +7,7 @@
     android:background="@color/background"
     tools:context=".Hole1Activity">
 
-    <EditText
+    <TextView
         android:id="@+id/hole1"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/holesLeft"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
