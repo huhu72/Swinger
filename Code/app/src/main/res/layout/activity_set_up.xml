@@ -13,7 +13,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/green"
+<<<<<<< HEAD
         android:onClick="gotoHole1"
+=======
+        android:onClick="openHole1"
+>>>>>>> 0c3766b468efba1da57dda334ec93d41afaf4bed
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
