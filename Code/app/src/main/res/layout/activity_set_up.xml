@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     tools:context=".SetUpActivity">
 
 
@@ -12,44 +11,35 @@
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/green"
-<<<<<<< HEAD
-        android:onClick="gotoHole1"
-=======
-        android:onClick="openHole1"
->>>>>>> 0c3766b468efba1da57dda334ec93d41afaf4bed
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        android:background="@color/green"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/endBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/red"
-        android:onClick="goHome"
         android:text="End Game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/startBtn"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:backgroundTint="#FFFFFF"
         android:ems="10"
-
-        android:foregroundTint="#FFFFFF"
-        android:hint="Enter Name"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:hint="Enter Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="200dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
