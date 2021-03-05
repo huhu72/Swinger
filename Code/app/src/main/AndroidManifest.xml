@@ -12,6 +12,7 @@
         <activity android:name=".EditPlayersActivity"></activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Hole1Activity" />
+        <activity android:name=".Hole2Activity"/>
         <activity android:name=".SetUpActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>

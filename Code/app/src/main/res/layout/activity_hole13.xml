@@ -7,24 +7,24 @@
     android:background="@color/background"
     tools:context=".Hole1Activity">
 
-    <TextView
+    <EditText
         android:id="@+id/hole1"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="50dp"
         android:width="60dp"
         android:background="@drawable/rect"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Hole 1"
-        android:layout_marginStart="80dp"
+        android:text="Hole 13"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/holesLeft"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="17 Left"
+        android:text="5 Left"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:inputType="number"
+        android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -123,20 +123,19 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_fast_forward" />
 
-    <Button
-        android:id="@+id/hole1_settings_btn"
+    <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="openSettings"/>
+        app:srcCompat="@drawable/ic_settings" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -171,7 +170,8 @@
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        />
 
     <Button
         android:id="@+id/par2Btn"
@@ -230,11 +230,11 @@
         app:layout_constraintStart_toEndOf="@+id/par5Btn" />
 
     <ImageButton
-        android:id="@+id/nextHole"
+        android:id="@+id/nextPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_fast_forward"
         tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="564dp" />
+        tools:layout_editor_absoluteY="643dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
