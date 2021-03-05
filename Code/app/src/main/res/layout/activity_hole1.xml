@@ -7,7 +7,7 @@
     android:background="@color/background"
     tools:context=".Hole1Activity">
 
-    <EditText
+    <TextView
         android:id="@+id/hole1"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/holesLeft"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:inputType="textPersonName"
+        android:inputType="numberPassword"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -127,13 +127,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_fast_forward" />
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <Button
+        android:id="@+id/hole1_settings_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings" />
+        android:onClick="openSettings"/>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -164,12 +165,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/par_selected"
+        android:clickable="false"
+        android:contextClickable="true"
         android:text="1"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        />
+        app:layout_constraintStart_toStartOf="@+id/imageView6" />
 
     <Button
         android:id="@+id/par2Btn"

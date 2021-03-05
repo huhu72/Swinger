@@ -3,9 +3,13 @@ package com.example.swinger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,67 +56,63 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         p1Hits = findViewById(R.id.player1Hits);
         p1score = findViewById(R.id.player1Score);
 
-        p1Hits.addTextChangedListener(new TextWatcher() {
-
-            boolean _ignore = false;
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (_ignore)
-                    return;
-
-                _ignore = true;
-
-             int p1Score =  Integer.parseInt(p1score.getText().toString());
-             p1score.setText(p1Score - score());
-
-                _ignore = false;
-            }
-        });
 
     }
 
     @Override
     public void onClick(View v) {
+
+        int i = Integer.parseInt(p1Hits.getText().toString());
+        String total = " ";
+
         switch (v.getId()) {
             case R.id.par1Btn:
                 clearButtonBackground();
                 par1.setBackgroundResource(R.drawable.par_selected);
                 par1.setTextColor(getColor(R.color.black));
+
+                 total = Integer.toString(i - 1);
+                p1score.setText(total);
                 break;
             case R.id.par2Btn:
                 clearButtonBackground();
                 par2.setBackgroundResource(R.drawable.par_selected);
                 par2.setTextColor(getColor(R.color.black));
+
+                 total = Integer.toString(i - 2);
+                p1score.setText(total);
                 break;
             case R.id.par3Btn:
                 clearButtonBackground();
                 par3.setBackgroundResource(R.drawable.par_selected);
                 par3.setTextColor(getColor(R.color.black));
+
+                total = Integer.toString(i - 3);
+                p1score.setText(total);
                 break;
             case R.id.par4Btn:
                 clearButtonBackground();
                 par4.setBackgroundResource(R.drawable.par_selected);
                 par4.setTextColor(getColor(R.color.black));
+
+                total = Integer.toString(i - 4);
+                p1score.setText(total);
                 break;
             case R.id.par5Btn:
                 clearButtonBackground();
                 par5.setBackgroundResource(R.drawable.par_selected);
                 par5.setTextColor(getColor(R.color.black));
+
+                total = Integer.toString(i - 5);
+                p1score.setText(total);
                 break;
             case R.id.par6Btn:
                 clearButtonBackground();
                 par6.setBackgroundResource(R.drawable.par_selected);
                 par6.setTextColor(getColor(R.color.black));
+
+                total = Integer.toString(i - 6);
+                p1score.setText(total);
                 break;
             default:
                 break;
@@ -125,34 +125,10 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public int score(){
 
-        EditText p1Hits = findViewById(R.id.player1Hits);
-        TextView p1Ttotal = findViewById(R.id.player1Score);
-
-        int p1 = Integer.parseInt((p1Hits.getText().toString()));
-        int total = 0;
-
-        if(par1.isPressed()){
-            total = -1;
-        }
-        else if(par2.isPressed()){
-            total = -2;
-        }
-        else if(par3.isPressed()){
-            total = -3;
-        }
-        else if(par4.isPressed()){
-            total = -4;
-        }
-        else if(par5.isPressed()){
-            total = -5;
-        }
-        else if(par6.isPressed()){
-            total = -6;
-        }
-
-        return total;
+    public void openSettings(View view){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
 
     }
 }
