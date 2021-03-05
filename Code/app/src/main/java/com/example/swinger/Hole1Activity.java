@@ -30,7 +30,14 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     private TextView p1score;
 
     private int calcScoreOnParClick(int par, EditText view){
-        int hits = Integer.parseInt(view.getText().toString());
+
+        String hitsStr = view.getText().toString();
+
+        if (hitsStr.equals("")){
+            return 0;
+        }
+
+        int hits = Integer.parseInt(hitsStr);
         int calcScore = hits - par;
         return calcScore;
     }
