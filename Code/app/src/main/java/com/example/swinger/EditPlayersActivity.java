@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class EditPlayersActivity extends AppCompatActivity {
+public class EditPlayersActivity extends AppCompatActivity implements View.OnClickListener {
     private Button removePlayer1;
     private Button removePlayer2;
     private Button removePlayer3;
@@ -28,11 +28,34 @@ public class EditPlayersActivity extends AppCompatActivity {
         player2 = findViewById(R.id.editPlayers_player2);
         player3 = findViewById(R.id.editPlayers_player3);
         player4 = findViewById(R.id.editPlayers_player4);
-        removePlayer1.setOnClickListener(v -> {
-                    removePlayer1.setVisibility(View.GONE);
-                    player1.setVisibility(View.GONE);
-                }
-                );
+        removePlayer1.setOnClickListener(this);
+        removePlayer2.setOnClickListener(this);
+        removePlayer3.setOnClickListener(this);
+        removePlayer4.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.editPlayer_delete_player1_btn:
+                removePlayer1.setVisibility(View.GONE);
+                player1.setVisibility(View.GONE);
+                break;
+            case R.id.editPlayer_delete_player2_btn:
+                removePlayer2.setVisibility(View.GONE);
+                player2.setVisibility(View.GONE);
+                break;
+            case R.id.editPlayer_delete_player3_btn:
+                removePlayer3.setVisibility(View.GONE);
+                player3.setVisibility(View.GONE);
+                break;
+            case R.id.editPlayer_delete_player4_btn:
+                removePlayer4.setVisibility(View.GONE);
+                player4.setVisibility(View.GONE);
+                break;
+
+            default:
+                break;
+        }
     }
 
 
