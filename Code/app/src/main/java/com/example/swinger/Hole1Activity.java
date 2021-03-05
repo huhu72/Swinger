@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Spannable;
@@ -56,63 +57,87 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         p1Hits = findViewById(R.id.player1Hits);
         p1score = findViewById(R.id.player1Score);
 
+        p1Hits.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                SpannableString spannableString = new SpannableString(s);
+                String so = spannableString.toString();
+
+                int i = Integer.parseInt(so);
+                String total = " ";
+
+                if (par1.getBackground()!=null){
+                    total = Integer.toString(i - 1);
+                    p1score.setText(total);
+                }
+                else if (par2.getBackground()!=null) {
+                    total = Integer.toString(i - 2);
+                    p1score.setText(total);
+                }
+                else if (par3.getBackground()!=null) {
+                    total = Integer.toString(i - 3);
+                    p1score.setText(total);
+                }
+                else if (par4.getBackground()!=null) {
+                    total = Integer.toString(i - 4);
+                    p1score.setText(total);
+                }
+                else if (par5.getBackground()!=null) {
+                    total = Integer.toString(i - 5);
+                    p1score.setText(total);
+                }
+                else if (par6.getBackground()!=null) {
+                    total = Integer.toString(i - 6);
+                    p1score.setText(total);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-
-        int i = Integer.parseInt(p1Hits.getText().toString());
-        String total = " ";
 
         switch (v.getId()) {
             case R.id.par1Btn:
                 clearButtonBackground();
                 par1.setBackgroundResource(R.drawable.par_selected);
                 par1.setTextColor(getColor(R.color.black));
-
-                 total = Integer.toString(i - 1);
-                p1score.setText(total);
                 break;
             case R.id.par2Btn:
                 clearButtonBackground();
                 par2.setBackgroundResource(R.drawable.par_selected);
                 par2.setTextColor(getColor(R.color.black));
-
-                 total = Integer.toString(i - 2);
-                p1score.setText(total);
                 break;
             case R.id.par3Btn:
                 clearButtonBackground();
                 par3.setBackgroundResource(R.drawable.par_selected);
                 par3.setTextColor(getColor(R.color.black));
-
-                total = Integer.toString(i - 3);
-                p1score.setText(total);
                 break;
             case R.id.par4Btn:
                 clearButtonBackground();
                 par4.setBackgroundResource(R.drawable.par_selected);
                 par4.setTextColor(getColor(R.color.black));
-
-                total = Integer.toString(i - 4);
-                p1score.setText(total);
                 break;
             case R.id.par5Btn:
                 clearButtonBackground();
                 par5.setBackgroundResource(R.drawable.par_selected);
                 par5.setTextColor(getColor(R.color.black));
-
-                total = Integer.toString(i - 5);
-                p1score.setText(total);
                 break;
             case R.id.par6Btn:
                 clearButtonBackground();
                 par6.setBackgroundResource(R.drawable.par_selected);
                 par6.setTextColor(getColor(R.color.black));
-
-                total = Integer.toString(i - 6);
-                p1score.setText(total);
                 break;
             default:
                 break;
