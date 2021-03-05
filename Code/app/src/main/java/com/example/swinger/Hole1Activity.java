@@ -57,6 +57,10 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         p1Hits = findViewById(R.id.player1Hits);
         p1score = findViewById(R.id.player1Score);
 
+        if(p1Hits==null){
+            return;
+        }
+
         p1Hits.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -67,34 +71,42 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 SpannableString spannableString = new SpannableString(s);
                 String so = spannableString.toString();
+                int i = 0;
 
-                int i = Integer.parseInt(so);
                 String total = " ";
 
-                if (par1.getBackground()!=null){
+            if(!so.equals("")) {
+                i = Integer.parseInt(so);
+                if (par1.getBackground() != null) {
+
                     total = Integer.toString(i - 1);
                     p1score.setText(total);
-                }
-                else if (par2.getBackground()!=null) {
+                } else if (par2.getBackground() != null) {
+
                     total = Integer.toString(i - 2);
                     p1score.setText(total);
-                }
-                else if (par3.getBackground()!=null) {
+                } else if (par3.getBackground() != null) {
+
                     total = Integer.toString(i - 3);
                     p1score.setText(total);
-                }
-                else if (par4.getBackground()!=null) {
+                } else if (par4.getBackground() != null) {
+
                     total = Integer.toString(i - 4);
                     p1score.setText(total);
-                }
-                else if (par5.getBackground()!=null) {
+                } else if (par5.getBackground() != null) {
+
                     total = Integer.toString(i - 5);
                     p1score.setText(total);
-                }
-                else if (par6.getBackground()!=null) {
+                } else if (par6.getBackground() != null) {
+
                     total = Integer.toString(i - 6);
                     p1score.setText(total);
                 }
+            }
+            else{
+                return;
+            }
+
 
             }
 
