@@ -3,9 +3,17 @@ package com.example.swinger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hole1Activity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +27,11 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
     private Button par6;
     private String playerName;
     private TextView player1;
+    private EditText p1Hits;
+    private TextView p1score;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +53,61 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         par6.setOnClickListener(this);
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
+
+        p1Hits = findViewById(R.id.player1Hits);
+        p1score = findViewById(R.id.player1Score);
+
+        p1Hits.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                SpannableString spannableString = new SpannableString(s);
+                String so = spannableString.toString();
+
+                int i = Integer.parseInt(so);
+                String total = " ";
+
+                if (par1.getBackground()!=null){
+                    total = Integer.toString(i - 1);
+                    p1score.setText(total);
+                }
+                else if (par2.getBackground()!=null) {
+                    total = Integer.toString(i - 2);
+                    p1score.setText(total);
+                }
+                else if (par3.getBackground()!=null) {
+                    total = Integer.toString(i - 3);
+                    p1score.setText(total);
+                }
+                else if (par4.getBackground()!=null) {
+                    total = Integer.toString(i - 4);
+                    p1score.setText(total);
+                }
+                else if (par5.getBackground()!=null) {
+                    total = Integer.toString(i - 5);
+                    p1score.setText(total);
+                }
+                else if (par6.getBackground()!=null) {
+                    total = Integer.toString(i - 6);
+                    p1score.setText(total);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.par1Btn:
                 clearButtonBackground();
@@ -85,8 +149,11 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
             btn.setTextColor(getColor(R.color.white));
         }
     }
+
+
     public void openSettings(View view){
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+
     }
 }
