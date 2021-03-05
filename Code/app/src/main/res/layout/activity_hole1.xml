@@ -165,8 +165,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/par_selected"
-        android:clickable="false"
-        android:contextClickable="true"
         android:text="1"
         android:textColor="#000000"
         android:textSize="25sp"
