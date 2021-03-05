@@ -1,7 +1,5 @@
 package com.example.swinger;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Hole1Activity extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Hole2Activity extends AppCompatActivity implements View.OnClickListener {
 
     private Button parBtns[];
     private Button par1;
@@ -50,14 +50,14 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         par4.setOnClickListener(this);
         par5.setOnClickListener(this);
         par6.setOnClickListener(this);
-        playerName = getIntent().getStringExtra("playerName");
-        player1.setText(playerName);
         nextHole.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nextHole();
             }
         });
+        playerName = getIntent().getStringExtra("playerName");
+        player1.setText(playerName);
 
         p1Hits = findViewById(R.id.player1Hits);
         p1score = findViewById(R.id.player1Score);
