@@ -8,12 +8,13 @@ import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Hole1Activity extends AppCompatActivity implements View.OnClickListener {
+public class Hole1Activity extends AppCompatActivity implements OnClickListener {
 
     private Button parBtns[];
     private Button par1;
@@ -27,6 +28,12 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
     private TextView player1;
     private EditText p1Hits;
     private TextView p1score;
+
+    private int calcScoreOnParClick(int par, EditText view){
+        int hits = Integer.parseInt(view.getText().toString());
+        int calcScore = hits - par;
+        return calcScore;
+    }
 
 
 
@@ -44,12 +51,7 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         nextHole = findViewById(R.id.nextHole);
         player1 = findViewById(R.id.playerOne);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
-        par1.setOnClickListener(this);
-        par2.setOnClickListener(this);
-        par3.setOnClickListener(this);
-        par4.setOnClickListener(this);
-        par5.setOnClickListener(this);
-        par6.setOnClickListener(this);
+
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
         nextHole.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,13 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
         if(p1Hits==null){
             return;
         }
+
+        par1.setOnClickListener(this);
+        par2.setOnClickListener(this);
+        par3.setOnClickListener(this);
+        par4.setOnClickListener(this);
+        par5.setOnClickListener(this);
+        par6.setOnClickListener(this);
 
         p1Hits.addTextChangedListener(new TextWatcher() {
             @Override
@@ -130,31 +139,37 @@ public class Hole1Activity extends AppCompatActivity implements View.OnClickList
                 clearButtonBackground();
                 par1.setBackgroundResource(R.drawable.par_selected);
                 par1.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(1, p1Hits)));
                 break;
             case R.id.par2Btn:
                 clearButtonBackground();
                 par2.setBackgroundResource(R.drawable.par_selected);
                 par2.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(2, p1Hits)));
                 break;
             case R.id.par3Btn:
                 clearButtonBackground();
                 par3.setBackgroundResource(R.drawable.par_selected);
                 par3.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(3, p1Hits)));
                 break;
             case R.id.par4Btn:
                 clearButtonBackground();
                 par4.setBackgroundResource(R.drawable.par_selected);
                 par4.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(4, p1Hits)));
                 break;
             case R.id.par5Btn:
                 clearButtonBackground();
                 par5.setBackgroundResource(R.drawable.par_selected);
                 par5.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(5, p1Hits)));
                 break;
             case R.id.par6Btn:
                 clearButtonBackground();
                 par6.setBackgroundResource(R.drawable.par_selected);
                 par6.setTextColor(getColor(R.color.black));
+                p1score.setText(String.valueOf(calcScoreOnParClick(6, p1Hits)));
                 break;
             default:
                 break;
