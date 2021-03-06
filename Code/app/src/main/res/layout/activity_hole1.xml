@@ -119,16 +119,6 @@
         app:layout_constraintStart_toStartOf="@+id/scoreLbl"
         app:layout_constraintTop_toTopOf="@+id/player1Hits" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_fast_forward" />
-
     <Button
         android:id="@+id/hole1_settings_btn"
         android:layout_width="50dp"
@@ -231,10 +221,12 @@
 
     <ImageButton
         android:id="@+id/nextHole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_fast_forward"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="564dp" />
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_fast_forward" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
