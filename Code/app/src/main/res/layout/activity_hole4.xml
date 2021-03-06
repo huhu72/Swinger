@@ -4,6 +4,242 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Hole4Activity">
+    android:background="@color/background"
+    tools:context=".Hole2Activity">
+
+    <TextView
+        android:id="@+id/hole4"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:width="60dp"
+        android:background="@drawable/rect"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Hole 3"
+        android:layout_marginStart="80dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hole4_holesLeft"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:width="60dp"
+        android:background="@drawable/rect"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="15 Left"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hole4" />
+
+    <TextView
+        android:id="@+id/hitsLbl"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/clear_rect"
+        android:gravity="center"
+        android:text="Hits"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/scoreLbl"
+        app:layout_constraintTop_toBottomOf="@+id/hole4_holesLeft" />
+
+    <TextView
+        android:id="@+id/scoreLbl"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/clear_rect"
+        android:gravity="center"
+        android:text="Score"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hitsLbl" />
+
+    <TextView
+        android:id="@+id/hole4_playerOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="Tommy"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hole4" />
+
+    <ImageView
+        android:id="@+id/hole4_golfBall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole4_playerOne"
+        app:layout_constraintStart_toEndOf="@+id/hole4_playerOne"
+        app:layout_constraintTop_toTopOf="@+id/hole4_playerOne"
+        app:srcCompat="@drawable/ic_golf_ball_black"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/hole4_player1Hits"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole4_golfBall"
+        app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
+        app:layout_constraintStart_toStartOf="@+id/hitsLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole4_golfBall" />
+
+    <TextView
+        android:id="@+id/hole4_player1Score"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole4_player1Hits"
+        app:layout_constraintEnd_toEndOf="@+id/scoreLbl"
+        app:layout_constraintStart_toStartOf="@+id/scoreLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole4_player1Hits" />
+
+    <Button
+        android:id="@+id/hole4_settings_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="openSettings"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/par_rect"
+        android:layout_marginBottom="100dp"/>
+
+    <TextView
+        android:id="@+id/par"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Par"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/hole4_par1Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/par_selected"
+        android:text="1"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/hole4_par2Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@android:color/transparent"
+        android:text="2"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/hole4_par1Btn" />
+    <Button
+        android:id="@+id/hole4_par3Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="3"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="40dp"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/hole4_par2Btn" />
+    <Button
+        android:id="@+id/hole4_par4Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:text="4"
+        android:layout_marginBottom="40dp"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/hole4_par3Btn" />
+    <Button
+        android:id="@+id/hole4_par5Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:text="5"
+        android:layout_marginBottom="40dp"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/hole4_par4Btn" />
+    <Button
+        android:id="@+id/hole4_par6Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:text="6"
+        android:layout_marginBottom="40dp"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/hole4_par5Btn" />
+
+    <ImageView
+        android:id="@+id/hole4_nextHole"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_fast_forward"
+        android:onClick="nextHole"
+        />
+
+    <ImageView
+        android:id="@+id/hole4_prevHole"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_fast_rewind_24"
+        android:onClick="prevHole"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
