@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Hole2Activity extends AppCompatActivity implements View.OnClickListener {
+public class Hole5Activity extends AppCompatActivity implements View.OnClickListener {
 
     private Button parBtns[];
     private Button par1;
@@ -35,15 +35,15 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hole2);
+        setContentView(R.layout.activity_hole5);
         par1 = findViewById(R.id.par1Btn);
         par2 = findViewById(R.id.par2Btn);
         par3 = findViewById(R.id.par3Btn);
         par4 = findViewById(R.id.par4Btn);
         par5 = findViewById(R.id.par5Btn);
         par6 = findViewById(R.id.par6Btn);
-        nextHole2 = findViewById(R.id.nextHole2);
-        prevHole = findViewById(R.id.prevHole);
+        nextHole2 = findViewById(R.id.nextHole5);
+        prevHole = findViewById(R.id.prevHole4);
         player1 = findViewById(R.id.playerOne);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
         par1.setOnClickListener(this);
@@ -183,14 +183,14 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
     }
 
     public void nextHole2(){
-        Intent intent = new Intent(this, Hole3Activity.class);
+        Intent intent = new Intent(this, Hole6Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
         startActivity(intent);
     }
 
     public void prevHole(){
-        Intent intent = new Intent(this, Hole1Activity.class);
+        Intent intent = new Intent(this, Hole4Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
         startActivity(intent);

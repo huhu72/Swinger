@@ -7,6 +7,27 @@
     android:background="@color/background"
     tools:context=".Hole1Activity">
 
+    <ImageButton
+        android:id="@+id/prevHole10"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="328dp"
+        android:layout_marginBottom="16dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_fast_forward" />
+
+    <ImageButton
+        android:id="@+id/nextHole11"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_fast_forward" />
+
     <EditText
         android:id="@+id/hole1"
         android:layout_width="110dp"
@@ -120,16 +141,6 @@
         app:layout_constraintTop_toTopOf="@+id/player1Hits" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="180dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_fast_forward" />
-
-    <ImageView
         android:id="@+id/imageView5"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -228,13 +239,5 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/par5Btn" />
-
-    <ImageButton
-        android:id="@+id/nextPageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_fast_forward"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="643dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

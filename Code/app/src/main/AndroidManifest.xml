@@ -13,6 +13,22 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Hole1Activity" />
         <activity android:name=".Hole2Activity"/>
+        <activity android:name=".Hole3Activity"/>
+        <activity android:name=".Hole4Activity"/>
+        <activity android:name=".Hole5Activity"/>
+        <activity android:name=".Hole6Activity"/>
+        <activity android:name=".Hole7Activity"/>
+        <activity android:name=".Hole8Activity"/>
+        <activity android:name=".Hole9Activity"/>
+        <activity android:name=".Hole10Activity"/>
+        <activity android:name=".Hole11Activity"/>
+        <activity android:name=".Hole12Activity"/>
+        <activity android:name=".Hole13Activity"/>
+        <activity android:name=".Hole14Activity"/>
+        <activity android:name=".Hole15Activity"/>
+        <activity android:name=".Hole16Activity"/>
+        <activity android:name=".Hole17Activity"/>
+        <activity android:name=".Hole18Activity"/>
         <activity android:name=".SetUpActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
