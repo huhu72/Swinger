@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".Hole15Activity"></activity>
+        <activity android:name=".Hole16Activity"></activity>
+        <activity android:name=".Hole15Activity" />
         <activity android:name=".Hole14Activity" />
         <activity android:name=".Hole13Activity" />
         <activity android:name=".Hole12Activity" />
