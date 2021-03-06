@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".EditPlayersActivity"></activity>
+        <activity android:name=".Hole3Activity"></activity>
+        <activity android:name=".Hole2Activity" />
+        <activity android:name=".EditPlayersActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Hole1Activity" />
         <activity android:name=".SetUpActivity" />

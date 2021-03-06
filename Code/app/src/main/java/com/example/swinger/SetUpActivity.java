@@ -19,7 +19,7 @@ public class SetUpActivity extends AppCompatActivity {
 
     public void gotoHole1(View view) {
         Intent intent = new Intent(this, Hole1Activity.class);
-        intent.putExtra("playerName", capitalize(name));
+        intent.putExtra("player1Name", capitalize(name));
         startActivity(intent);
     }
 
