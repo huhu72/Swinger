@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Hole1Activity extends AppCompatActivity implements OnClickListener {
@@ -23,7 +22,6 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     private Button par4;
     private Button par5;
     private Button par6;
-    private ImageButton nextHole;
     private String playerName;
     private TextView player1;
     private EditText p1Hits;
@@ -49,27 +47,19 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hole1);
-        par1 = findViewById(R.id.par1Btn);
-        par2 = findViewById(R.id.par2Btn);
-        par3 = findViewById(R.id.par3Btn);
-        par4 = findViewById(R.id.par4Btn);
-        par5 = findViewById(R.id.par5Btn);
-        par6 = findViewById(R.id.par6Btn);
-        nextHole = findViewById(R.id.nextHole);
-        player1 = findViewById(R.id.playerOne);
+        par1 = findViewById(R.id.hole1_par1Btn);
+        par2 = findViewById(R.id.hole1_par2Btn);
+        par3 = findViewById(R.id.hole1_par3Btn);
+        par4 = findViewById(R.id.hole1_par4Btn);
+        par5 = findViewById(R.id.hole1_par5Btn);
+        par6 = findViewById(R.id.hole1_par6Btn);
+        player1 = findViewById(R.id.hole1_playerOne);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
 
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
-        nextHole.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextHole();
-            }
-        });
-
-        p1Hits = findViewById(R.id.player1Hits);
-        p1score = findViewById(R.id.player1Score);
+        p1Hits = findViewById(R.id.hole1_player1Hits);
+        p1score = findViewById(R.id.hole1_player1Score);
 
         if(p1Hits==null){
             return;
@@ -142,37 +132,37 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.par1Btn:
+            case R.id.hole1_par1Btn:
                 clearButtonBackground();
                 par1.setBackgroundResource(R.drawable.par_selected);
                 par1.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(1, p1Hits)));
                 break;
-            case R.id.par2Btn:
+            case R.id.hole1_par2Btn:
                 clearButtonBackground();
                 par2.setBackgroundResource(R.drawable.par_selected);
                 par2.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(2, p1Hits)));
                 break;
-            case R.id.par3Btn:
+            case R.id.hole1_par3Btn:
                 clearButtonBackground();
                 par3.setBackgroundResource(R.drawable.par_selected);
                 par3.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(3, p1Hits)));
                 break;
-            case R.id.par4Btn:
+            case R.id.hole1_par4Btn:
                 clearButtonBackground();
                 par4.setBackgroundResource(R.drawable.par_selected);
                 par4.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(4, p1Hits)));
                 break;
-            case R.id.par5Btn:
+            case R.id.hole1_par5Btn:
                 clearButtonBackground();
                 par5.setBackgroundResource(R.drawable.par_selected);
                 par5.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(5, p1Hits)));
                 break;
-            case R.id.par6Btn:
+            case R.id.hole1_par6Btn:
                 clearButtonBackground();
                 par6.setBackgroundResource(R.drawable.par_selected);
                 par6.setTextColor(getColor(R.color.black));
@@ -196,11 +186,11 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
 
     }
 
-    public void nextHole(){
+    /*public void nextHole(){
         Intent intent = new Intent(this, Hole2Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
         intent.putExtra("playerScore", p1score.getText().toString());
         startActivity(intent);
-    }
+    }*/
 }
