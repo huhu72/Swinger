@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Hole2Activity">
+    tools:context=".Hole4Activity">
 
     <TextView
         android:id="@+id/hole4"
@@ -17,7 +17,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Hole 3"
+        android:text="Hole 4"
         android:layout_marginStart="80dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -34,7 +34,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="15 Left"
+        android:text="14 Left"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
