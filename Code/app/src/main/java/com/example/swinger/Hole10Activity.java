@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Hole1Activity extends AppCompatActivity implements OnClickListener {
+public class Hole10Activity extends AppCompatActivity implements OnClickListener {
 
     private Button parBtns[];
     private Button par1;
@@ -47,17 +47,17 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hole1);
-        par1 = findViewById(R.id.hole1_par1Btn);
-        par2 = findViewById(R.id.hole1_par2Btn);
-        par3 = findViewById(R.id.hole1_par3Btn);
-        par4 = findViewById(R.id.hole1_par4Btn);
-        par5 = findViewById(R.id.hole1_par5Btn);
-        par6 = findViewById(R.id.hole1_par6Btn);
-        player1 = findViewById(R.id.hole1_playerOne);
+        setContentView(R.layout.activity_hole10);
+        par1 = findViewById(R.id.hole10_par1Btn);
+        par2 = findViewById(R.id.hole10_par2Btn);
+        par3 = findViewById(R.id.hole10_par3Btn);
+        par4 = findViewById(R.id.hole10_par4Btn);
+        par5 = findViewById(R.id.hole10_par5Btn);
+        par6 = findViewById(R.id.hole10_par6Btn);
+        player1 = findViewById(R.id.hole10_playerOne);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
-        p1Hits = findViewById(R.id.hole1_player1Hits);
-        p1score = findViewById(R.id.hole1_player1Score);
+        p1Hits = findViewById(R.id.hole10_player1Hits);
+        p1score = findViewById(R.id.hole10_player1Score);
         player1Name = getIntent().getStringExtra("player1Name");
         player1Score = getIntent().getStringExtra("player1Score");
         player1.setText(player1Name);
@@ -89,37 +89,37 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
 
                 String total = " ";
 
-            if(!so.equals("")) {
-                i = Integer.parseInt(so);
-                if (par1.getBackground() != null) {
+                if(!so.equals("")) {
+                    i = Integer.parseInt(so);
+                    if (par1.getBackground() != null) {
 
-                    total = Integer.toString(i - 1);
-                    p1score.setText(total);
-                } else if (par2.getBackground() != null) {
+                        total = Integer.toString(i - 1);
+                        p1score.setText(total);
+                    } else if (par2.getBackground() != null) {
 
-                    total = Integer.toString(i - 2);
-                    p1score.setText(total);
-                } else if (par3.getBackground() != null) {
+                        total = Integer.toString(i - 2);
+                        p1score.setText(total);
+                    } else if (par3.getBackground() != null) {
 
-                    total = Integer.toString(i - 3);
-                    p1score.setText(total);
-                } else if (par4.getBackground() != null) {
+                        total = Integer.toString(i - 3);
+                        p1score.setText(total);
+                    } else if (par4.getBackground() != null) {
 
-                    total = Integer.toString(i - 4);
-                    p1score.setText(total);
-                } else if (par5.getBackground() != null) {
+                        total = Integer.toString(i - 4);
+                        p1score.setText(total);
+                    } else if (par5.getBackground() != null) {
 
-                    total = Integer.toString(i - 5);
-                    p1score.setText(total);
-                } else if (par6.getBackground() != null) {
+                        total = Integer.toString(i - 5);
+                        p1score.setText(total);
+                    } else if (par6.getBackground() != null) {
 
-                    total = Integer.toString(i - 6);
-                    p1score.setText(total);
+                        total = Integer.toString(i - 6);
+                        p1score.setText(total);
+                    }
                 }
-            }
-            else{
-                return;
-            }
+                else{
+                    return;
+                }
 
 
             }
@@ -135,37 +135,37 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.hole1_par1Btn:
+            case R.id.hole10_par1Btn:
                 clearButtonBackground();
                 par1.setBackgroundResource(R.drawable.par_selected);
                 par1.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(1, p1Hits)));
                 break;
-            case R.id.hole1_par2Btn:
+            case R.id.hole10_par2Btn:
                 clearButtonBackground();
                 par2.setBackgroundResource(R.drawable.par_selected);
                 par2.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(2, p1Hits)));
                 break;
-            case R.id.hole1_par3Btn:
+            case R.id.hole10_par3Btn:
                 clearButtonBackground();
                 par3.setBackgroundResource(R.drawable.par_selected);
                 par3.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(3, p1Hits)));
                 break;
-            case R.id.hole1_par4Btn:
+            case R.id.hole10_par4Btn:
                 clearButtonBackground();
                 par4.setBackgroundResource(R.drawable.par_selected);
                 par4.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(4, p1Hits)));
                 break;
-            case R.id.hole1_par5Btn:
+            case R.id.hole10_par5Btn:
                 clearButtonBackground();
                 par5.setBackgroundResource(R.drawable.par_selected);
                 par5.setTextColor(getColor(R.color.black));
                 p1score.setText(String.valueOf(calcScoreOnParClick(5, p1Hits)));
                 break;
-            case R.id.hole1_par6Btn:
+            case R.id.hole10_par6Btn:
                 clearButtonBackground();
                 par6.setBackgroundResource(R.drawable.par_selected);
                 par6.setTextColor(getColor(R.color.black));
@@ -190,7 +190,14 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
     }
 
     public void nextHole(View view){
-        Intent intent = new Intent(this, Hole2Activity.class);
+        Intent intent = new Intent(this, Hole11Activity.class);
+        player1Name = player1.getText().toString();
+        intent.putExtra("player1Name", player1Name);
+        intent.putExtra("player1Score", p1score.getText().toString());
+        startActivity(intent);
+    }
+    public void prevHole(View view){
+        Intent intent = new Intent(this, Hole9Activity.class);
         player1Name = player1.getText().toString();
         intent.putExtra("player1Name", player1Name);
         intent.putExtra("player1Score", p1score.getText().toString());

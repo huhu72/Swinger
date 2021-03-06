@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Hole1Activity">
+    tools:context=".Hole3Activity">
 
     <TextView
-        android:id="@+id/hole1"
+        android:id="@+id/hole3"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -17,7 +17,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Hole 1"
+        android:text="Hole 3"
         android:layout_marginStart="80dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/hole1_holesLeft"
+        android:id="@+id/hole3_holesLeft"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
@@ -34,11 +34,11 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="17 Left"
+        android:text="15 Left"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hole1" />
+        app:layout_constraintTop_toTopOf="@+id/hole3" />
 
     <TextView
         android:id="@+id/hitsLbl"
@@ -52,7 +52,7 @@
         android:textSize="15dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toStartOf="@+id/scoreLbl"
-        app:layout_constraintTop_toBottomOf="@+id/hole1_holesLeft" />
+        app:layout_constraintTop_toBottomOf="@+id/hole3_holesLeft" />
 
     <TextView
         android:id="@+id/scoreLbl"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="@+id/hitsLbl" />
 
     <TextView
-        android:id="@+id/hole1_playerOne"
+        android:id="@+id/hole3_playerOne"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -79,20 +79,20 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hole1" />
+        app:layout_constraintTop_toBottomOf="@+id/hole3" />
 
     <ImageView
-        android:id="@+id/hole1_golfBall"
+        android:id="@+id/hole3_golfBall"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/hole1_playerOne"
-        app:layout_constraintStart_toEndOf="@+id/hole1_playerOne"
-        app:layout_constraintTop_toTopOf="@+id/hole1_playerOne"
+        app:layout_constraintBottom_toBottomOf="@+id/hole3_playerOne"
+        app:layout_constraintStart_toEndOf="@+id/hole3_playerOne"
+        app:layout_constraintTop_toTopOf="@+id/hole3_playerOne"
         app:srcCompat="@drawable/ic_golf_ball_black"
         android:layout_marginStart="20dp"/>
 
     <EditText
-        android:id="@+id/hole1_player1Hits"
+        android:id="@+id/hole3_player1Hits"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
@@ -100,13 +100,13 @@
         android:inputType="number"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hole1_golfBall"
+        app:layout_constraintBottom_toBottomOf="@+id/hole3_golfBall"
         app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
         app:layout_constraintStart_toStartOf="@+id/hitsLbl"
-        app:layout_constraintTop_toTopOf="@+id/hole1_golfBall" />
+        app:layout_constraintTop_toTopOf="@+id/hole3_golfBall" />
 
     <TextView
-        android:id="@+id/hole1_player1Score"
+        android:id="@+id/hole3_player1Score"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
@@ -114,13 +114,13 @@
         android:text="0"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hole1_player1Hits"
+        app:layout_constraintBottom_toBottomOf="@+id/hole3_player1Hits"
         app:layout_constraintEnd_toEndOf="@+id/scoreLbl"
         app:layout_constraintStart_toStartOf="@+id/scoreLbl"
-        app:layout_constraintTop_toTopOf="@+id/hole1_player1Hits" />
+        app:layout_constraintTop_toTopOf="@+id/hole3_player1Hits" />
 
     <Button
-        android:id="@+id/hole1_settings_btn"
+        android:id="@+id/hole3_settings_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_settings"
@@ -151,7 +151,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/hole1_par1Btn"
+        android:id="@+id/hole3_par1Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -164,7 +164,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/hole1_par2Btn"
+        android:id="@+id/hole3_par2Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="40dp"
@@ -173,9 +173,9 @@
         android:textColor="#FFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/hole1_par1Btn" />
+        app:layout_constraintStart_toEndOf="@+id/hole3_par1Btn" />
     <Button
-        android:id="@+id/hole1_par3Btn"
+        android:id="@+id/hole3_par3Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="3"
@@ -184,9 +184,9 @@
         android:textColor="#FFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/hole1_par2Btn" />
+        app:layout_constraintStart_toEndOf="@+id/hole3_par2Btn" />
     <Button
-        android:id="@+id/hole1_par4Btn"
+        android:id="@+id/hole3_par4Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@android:color/transparent"
@@ -195,9 +195,9 @@
         android:textColor="#FFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/hole1_par3Btn" />
+        app:layout_constraintStart_toEndOf="@+id/hole3_par3Btn" />
     <Button
-        android:id="@+id/hole1_par5Btn"
+        android:id="@+id/hole3_par5Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@android:color/transparent"
@@ -206,9 +206,9 @@
         android:textColor="#FFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/hole1_par4Btn" />
+        app:layout_constraintStart_toEndOf="@+id/hole3_par4Btn" />
     <Button
-        android:id="@+id/hole1_par6Btn"
+        android:id="@+id/hole3_par6Btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@android:color/transparent"
@@ -217,19 +217,29 @@
         android:textColor="#FFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/hole1_par5Btn" />
+        app:layout_constraintStart_toEndOf="@+id/hole3_par5Btn" />
 
     <ImageView
-        android:id="@+id/hole1_nextHole"
+        android:id="@+id/hole3_nextHole"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_fast_forward"
-        android:onClick="nextHole"/>
+        android:onClick="nextHole"
+        />
+
+    <ImageView
+        android:id="@+id/hole3_prevHole"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_fast_rewind_24"
+        android:onClick="prevHole"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
