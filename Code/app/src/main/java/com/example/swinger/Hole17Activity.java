@@ -190,14 +190,14 @@ public class Hole17Activity extends AppCompatActivity implements OnClickListener
     }
 
     public void nextHole(View view){
-        Intent intent = new Intent(this, Hole17Activity.class);
+        Intent intent = new Intent(this, Hole18Activity.class);
         player1Name = player1.getText().toString();
         intent.putExtra("player1Name", player1Name);
         intent.putExtra("player1Score", p1score.getText().toString());
         startActivity(intent);
     }
     public void prevHole(View view){
-        Intent intent = new Intent(this, Hole15Activity.class);
+        Intent intent = new Intent(this, Hole16Activity.class);
         player1Name = player1.getText().toString();
         intent.putExtra("player1Name", player1Name);
         intent.putExtra("player1Score", p1score.getText().toString());
