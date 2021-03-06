@@ -28,6 +28,7 @@ public class Hole3Activity extends AppCompatActivity implements View.OnClickList
     private TextView player1;
     private EditText p1Hits;
     private TextView p1score;
+    private String player1Score;
 
 
 
@@ -54,6 +55,8 @@ public class Hole3Activity extends AppCompatActivity implements View.OnClickList
         par6.setOnClickListener(this);
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
+        player1Score = getIntent().getStringExtra("playerScore");
+        p1score.setText(player1Score);
         nextHole3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -186,6 +189,7 @@ public class Hole3Activity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, Hole4Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
+        intent.putExtra("playerscore", p1score.getText().toString());
         startActivity(intent);
     }
 
@@ -193,6 +197,8 @@ public class Hole3Activity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, Hole2Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
+        intent.putExtra("playerScpre",p1score.getText().toString());
+
         startActivity(intent);
     }
 }

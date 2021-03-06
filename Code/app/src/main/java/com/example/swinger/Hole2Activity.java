@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,8 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
     private TextView player1;
     private EditText p1Hits;
     private TextView p1score;
+    private String player1Score;
+    private TextView hole2_score;
 
 
 
@@ -45,6 +48,7 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
         nextHole2 = findViewById(R.id.nextHole2);
         prevHole = findViewById(R.id.prevHole);
         player1 = findViewById(R.id.playerOne);
+        hole2_score = findViewById(R.id.hole2_player1Score);
         parBtns = new Button[]{par1,par2,par3,par4,par5,par6};
         par1.setOnClickListener(this);
         par2.setOnClickListener(this);
@@ -54,6 +58,12 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
         par6.setOnClickListener(this);
         playerName = getIntent().getStringExtra("playerName");
         player1.setText(playerName);
+        player1Score = getIntent().getStringExtra("playerScore");
+        Log.i("player1 score",player1Score);
+        if(player1Score!=null) {
+           hole2_score.setText(player1Score);
+        }
+       // p1score.setText(player1Score);
         nextHole2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -186,6 +196,7 @@ public class Hole2Activity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, Hole3Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
+        intent.putExtra("playerscore", p1score.getText().toString());
         startActivity(intent);
     }
 

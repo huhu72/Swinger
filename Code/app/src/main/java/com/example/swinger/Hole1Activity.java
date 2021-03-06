@@ -200,6 +200,7 @@ public class Hole1Activity extends AppCompatActivity implements OnClickListener 
         Intent intent = new Intent(this, Hole2Activity.class);
         playerName = player1.getText().toString();
         intent.putExtra("playerName", playerName);
+        intent.putExtra("playerScore", p1score.getText().toString());
         startActivity(intent);
     }
 }

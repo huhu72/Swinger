@@ -127,7 +127,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/player1Score"
+        android:id="@+id/hole2_player1Score"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
