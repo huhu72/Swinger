@@ -3,11 +3,8 @@ package com.example.swinger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
@@ -19,12 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 
 public class HoleConfig extends AppCompatActivity {
 
-    int holeNumber = 0;
+    int holeNumber;
     int numPars = 6;
 
     String[] parNames = new String[numPars];
@@ -43,6 +38,7 @@ public class HoleConfig extends AppCompatActivity {
     int playerID = 0;
     TextView playerView = null;
 
+    String player1Hits = "0";
     String player1Score = "0";
     String player1Name = "No Name Set!";
 
@@ -84,21 +80,31 @@ public class HoleConfig extends AppCompatActivity {
 
     public HoleConfig(int holeNumber){
         this.holeNumber = holeNumber;
-        Log.i("foo", "Created holeConfig!");
-
     }
 
     public void buildHole(Activity activity){
         this.holeActivity = activity;
-//        String name = holeActivity.getIntent().getStringExtra("player1Name");
-//        TextView player1 = null;
-//        player1 = holeActivity.findViewById(R.id.hole1_playerOne);
-//        player1.setText(name);
 
+        Log.i("activity exists?: ", String.valueOf(holeActivity));
 
         initializeParButtons();
         initializeLabels();
         initializeButtons();
+    }
+
+    public void reloadIntentArgs(){
+        Log.i("Info: ", "Activity " + holeNumber + " Resumed!");
+        try {
+            player1Score = holeActivity.getIntent().getStringExtra("player1Score");
+            player1Name = holeActivity.getIntent().getStringExtra("player1Name");
+            Log.i("Info:", "Intent score " + player1Score);
+
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        scoreView.setText(player1Score);
+        playerView.setText(player1Name);
     }
 
     public int calcScoreOnParClick(int par, EditText view){
@@ -170,11 +176,12 @@ public class HoleConfig extends AppCompatActivity {
         try {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
             player1Name = holeActivity.getIntent().getStringExtra("player1Name");
-        } catch (Exception E){
-            // temporary - do nothing!
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
         }
 
         // params are initialized with visibly dummy values in case they aren't passed in intent
+        hitsView.setText(player1Hits);
         scoreView.setText(player1Score);
         playerView.setText(player1Name);
 
@@ -229,8 +236,6 @@ public class HoleConfig extends AppCompatActivity {
                 return;
             }
 
-            Log.i("foo", "clicked da button");
-
             clearButtonBackground();
             parButton.setBackgroundResource(R.drawable.par_selected);
             parButton.setTextColor(Color.parseColor("#000000")); // black
@@ -246,10 +251,9 @@ public class HoleConfig extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             SpannableString spannableString = new SpannableString(s);
             String inputStr = spannableString.toString();
-            int i = 0;
 
             if(!inputStr.equals("")) {
-                i = Integer.parseInt(inputStr);
+                int inputHits = Integer.parseInt(inputStr);
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -261,8 +265,9 @@ public class HoleConfig extends AppCompatActivity {
                     }
 
                     if (foundSelectedPar){
-                        int total = i - parNum;
-                        scoreView.setText(String.valueOf(total));
+                        int total = inputHits - parNum;
+                        player1Score = String.valueOf(total);
+                        scoreView.setText(player1Score);
                         break;
                     }
                 }
@@ -281,6 +286,7 @@ public class HoleConfig extends AppCompatActivity {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };
@@ -292,6 +298,7 @@ public class HoleConfig extends AppCompatActivity {
             player1Name = playerView.getText().toString();
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };
@@ -301,6 +308,7 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };

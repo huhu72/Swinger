@@ -20,11 +20,13 @@ public class SetUpActivity extends AppCompatActivity {
     public void gotoHole1(View view) {
         Intent intent = new Intent(this, Hole1Activity.class);
         intent.putExtra("player1Name", capitalize(name));
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
     public void goHome(View view) {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 

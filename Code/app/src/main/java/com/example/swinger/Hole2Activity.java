@@ -185,8 +185,8 @@ public class Hole2Activity extends AppCompatActivity implements OnClickListener 
 
     public void openSettings(View view){
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
-
     }
 
     public void nextHole(View view){
@@ -194,6 +194,7 @@ public class Hole2Activity extends AppCompatActivity implements OnClickListener 
         player1Name = player1.getText().toString();
         intent.putExtra("player1Name", player1Name);
         intent.putExtra("player1Score", p1score.getText().toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
     public void prevHole(View view){
@@ -201,6 +202,7 @@ public class Hole2Activity extends AppCompatActivity implements OnClickListener 
         player1Name = player1.getText().toString();
         intent.putExtra("player1Name", player1Name);
         intent.putExtra("player1Score", p1score.getText().toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
