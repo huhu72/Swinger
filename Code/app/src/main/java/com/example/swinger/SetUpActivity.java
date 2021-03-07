@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 public class SetUpActivity extends AppCompatActivity {
     private EditText name;
+    public int[] holeHits = new int[18]; // array to tracks hits for player 1 on each hole
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class SetUpActivity extends AppCompatActivity {
     public void gotoHole1(View view) {
         Intent intent = new Intent(this, Hole1Activity.class);
         intent.putExtra("player1Name", capitalize(name));
+        intent.putExtra("holeHits", holeHits);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }

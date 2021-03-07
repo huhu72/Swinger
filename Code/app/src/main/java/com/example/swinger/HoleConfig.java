@@ -21,6 +21,7 @@ public class HoleConfig extends AppCompatActivity {
 
     int holeNumber;
     int numPars = 6;
+    int[] holeHits;
 
     String[] parNames = new String[numPars];
     int[] parIDs = new int[numPars];
@@ -176,6 +177,9 @@ public class HoleConfig extends AppCompatActivity {
         try {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
             player1Name = holeActivity.getIntent().getStringExtra("player1Name");
+            holeHits = holeActivity.getIntent().getIntArrayExtra("holeHits");
+            player1Hits = String.valueOf(holeHits[holeNumber -1]);
+
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
         }
@@ -251,9 +255,12 @@ public class HoleConfig extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             SpannableString spannableString = new SpannableString(s);
             String inputStr = spannableString.toString();
+            player1Hits = inputStr;
+
 
             if(!inputStr.equals("")) {
                 int inputHits = Integer.parseInt(inputStr);
+                holeHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -271,6 +278,9 @@ public class HoleConfig extends AppCompatActivity {
                         break;
                     }
                 }
+            } else {
+                holeHits[holeNumber - 1] = 0;
+
             }
             return;
         }
@@ -286,6 +296,8 @@ public class HoleConfig extends AppCompatActivity {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
+            intent.putExtra("holeHits", holeHits);
+
             holeActivity.startActivity(intent);
         }
     };
@@ -297,6 +309,7 @@ public class HoleConfig extends AppCompatActivity {
             player1Name = playerView.getText().toString();
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
+            intent.putExtra("holeHits", holeHits);
             holeActivity.startActivity(intent);
         }
     };
