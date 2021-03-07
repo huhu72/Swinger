@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -47,11 +48,11 @@ public class HoleConfig extends AppCompatActivity {
 
     String nextButtonName = "";
     int nextButtonID = 0;
-    TextView nextButtonView = null;
+    ImageView nextButtonView = null;
 
     String prevButtonName = "";
     int prevButtonID = 0;
-    TextView prevButtonView = null;
+    ImageView prevButtonView = null;
 
     String settingsButtonName = "";
     int settingsButtonID = 0;
@@ -128,7 +129,7 @@ public class HoleConfig extends AppCompatActivity {
             nextButtonView.setOnClickListener(nextHole);
 
         } catch (Exception e){
-            Log.i("f", "Exception init next button");
+            Log.i("f", "Exception init next button", e);
         }
 
         try {
@@ -277,31 +278,30 @@ public class HoleConfig extends AppCompatActivity {
     public OnClickListener nextHole = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            // holeNumber offset by 1 because we need to use it as an index here
-            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 1] );
+            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
-            startActivity(intent);
+            holeActivity.startActivity(intent);
         }
     };
 
     public OnClickListener prevHole = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            // holeNumber offset by 1 because we need to use it as an index here
-            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 2] );
+            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 1] );
             player1Name = playerView.getText().toString();
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
-            startActivity(intent);
+            holeActivity.startActivity(intent);
         }
     };
 
     public OnClickListener openSettings = new OnClickListener() {
+
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
-            startActivity(intent);
+            holeActivity.startActivity(intent);
         }
     };
 }
