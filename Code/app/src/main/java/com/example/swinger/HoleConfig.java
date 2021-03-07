@@ -286,7 +286,6 @@ public class HoleConfig extends AppCompatActivity {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };
@@ -294,11 +293,10 @@ public class HoleConfig extends AppCompatActivity {
     public OnClickListener prevHole = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 1] );
+            Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 2] );
             player1Name = playerView.getText().toString();
             intent.putExtra("player1Name", player1Name);
             intent.putExtra("player1Score", scoreView.getText().toString());
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };
@@ -308,7 +306,6 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             holeActivity.startActivity(intent);
         }
     };
