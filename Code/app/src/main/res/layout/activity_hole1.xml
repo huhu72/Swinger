@@ -125,8 +125,7 @@
         android:layout_height="50dp"
         android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="openSettings"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -229,7 +228,6 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_fast_forward"
-        android:onClick="nextHole"/>
+        app:srcCompat="@drawable/ic_fast_forward"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

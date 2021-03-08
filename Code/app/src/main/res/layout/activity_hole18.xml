@@ -126,7 +126,7 @@
         android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="openSettings"/>
+        />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -228,7 +228,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_done_all_24"
-        android:onClick="finishGame"
         />
 
     <ImageView
@@ -239,7 +238,6 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_fast_rewind_24"
-        android:onClick="prevHole"/>
+        app:srcCompat="@drawable/ic_baseline_fast_rewind_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
