@@ -234,8 +234,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_fast_forward"
-        />
+        app:srcCompat="@android:drawable/ic_media_next" />
 
     <ImageView
         android:id="@+id/hole15_prevHole"
@@ -245,7 +244,6 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_fast_rewind_24"
-        />
+        app:srcCompat="@android:drawable/ic_media_previous" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

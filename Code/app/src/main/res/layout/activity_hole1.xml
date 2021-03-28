@@ -234,6 +234,6 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_fast_forward"/>
+        app:srcCompat="@android:drawable/ic_media_next" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
