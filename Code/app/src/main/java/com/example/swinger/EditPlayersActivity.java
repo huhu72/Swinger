@@ -13,7 +13,11 @@ public class EditPlayersActivity extends AppCompatActivity {
     private Button removePlayer2;
     private Button removePlayer3;
     private Button removePlayer4;
+    private Button save;
     String player1Name;
+    String player2Name;
+    String player3Name;
+    String player4Name;
     private EditText player1;
     private EditText player2;
     private EditText player3;
@@ -30,17 +34,43 @@ public class EditPlayersActivity extends AppCompatActivity {
         removePlayer2 = findViewById(R.id.editPlayer_delete_player2_btn);
         removePlayer3 = findViewById(R.id.editPlayer_delete_player3_btn);
         removePlayer4 = findViewById(R.id.editPlayer_delete_player4_btn);
+        save = findViewById(R.id.edit_players_saveBtn);
         player1 = findViewById(R.id.editPlayers_player1);
         player2 = findViewById(R.id.editPlayers_player2);
         player3 = findViewById(R.id.editPlayers_player3);
         player4 = findViewById(R.id.editPlayers_player4);
         player1.setText(player1Name);
-        removePlayer1.setOnClickListener(v -> {
-                    removePlayer1.setVisibility(View.GONE);
-                    player1.setVisibility(View.GONE);
-                }
-                );
-    }
 
+    }
+    public void removePlayer1(View view){
+        player1.setText("");
+    }
+    public void removePlayer2(View view){
+        player2.setText("");
+    }
+    public void removePlayer3(View view){
+        player3.setText("");
+    }
+    public void removePlayer4(View view){
+        player4.setText("");
+    }
+    public void save(View view){
+        if(player1.getText().toString() != null) {
+            player1Name = player1.getText().toString();
+            player1.setText(player1Name);
+        }
+        if(player2.getText().toString() != null) {
+            player2Name = player2.getText().toString();
+            player2.setText(player2Name);
+        }
+        if(player3.getText().toString() != null) {
+            player3Name = player3.getText().toString();
+            player3.setText(player3Name);
+        }
+        if(player4.getText().toString() != null) {
+            player4Name = player4.getText().toString();
+            player4.setText(player4Name);
+        }
+    }
 
 }
