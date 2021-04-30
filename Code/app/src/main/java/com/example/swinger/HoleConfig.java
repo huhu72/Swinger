@@ -17,32 +17,93 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class HoleConfig extends AppCompatActivity {
 
     int holeNumber;
     int numPars = 6;
-    int[] holeHits;
 
     String[] parNames = new String[numPars];
     int[] parIDs = new int[numPars];
     Button[] parViews = new Button[numPars];
 
-    String hitsName = "";
-    int hitsID = 0;
-    EditText hitsView = null;
+    // PLAYER 1
+    String player1HitsTemp = "";
+    int player1HitsID = 0;
+    EditText player1HitsView = null;
 
-    String scoreName = "";
-    int scoreID = 0;
-    TextView scoreView = null;
+    String player1ScoreTemp = "";
+    int player1ScoreID = 0;
+    TextView player1ScoreView = null;
 
-    String playerName = "";
-    int playerID = 0;
-    TextView playerView = null;
+    String player1NameTemp = "";
+    int player1ID = 0;
+    TextView player1View;
 
     String player1Hits = "0";
     String player1Score = "0";
     String player1Name = "No Name Set!";
+
+    int[] player1HoleHits = new int[18];
+
+    // PLAYER 2
+    String player2HitsTemp = "";
+    int player2HitsID = 0;
+    EditText player2HitsView = null;
+
+    String player2ScoreTemp = "";
+    int player2ScoreID = 0;
+    TextView player2ScoreView = null;
+
+    String player2NameTemp = "";
+    int player2ID = 0;
+    TextView player2View;
+
+    String player2Hits = "0";
+    String player2Score = "0";
+    String player2Name = "No Name Set!";
+
+    int[] player2HoleHits = new int[18];
+
+    // PLAYER 3
+    String player3HitsTemp = "";
+    int player3HitsID = 0;
+    EditText player3HitsView = null;
+
+    String player3ScoreTemp = "";
+    int player3ScoreID = 0;
+    TextView player3ScoreView = null;
+
+    String player3NameTemp = "";
+    int player3ID = 0;
+    TextView player3View;
+
+    String player3Hits = "0";
+    String player3Score = "0";
+    String player3Name = "No Name Set!";
+
+    int[] player3HoleHits = new int[18];
+
+    // PLAYER 4
+    String player4HitsTemp = "";
+    int player4HitsID = 0;
+    EditText player4HitsView = null;
+
+    String player4ScoreTemp = "";
+    int player4ScoreID = 0;
+    TextView player4ScoreView = null;
+
+    String player4NameTemp = "";
+    int player4ID = 0;
+    TextView player4View;
+
+    String player4Hits = "0";
+    String player4Score = "0";
+    String player4Name = "No Name Set!";
+
+    int[] player4HoleHits = new int[18];
 
     String nextButtonName = "";
     int nextButtonID = 0;
@@ -57,6 +118,9 @@ public class HoleConfig extends AppCompatActivity {
     Button settingsButtonView = null;
 
     Activity holeActivity;
+    TextView[] playerViews = new TextView[4];
+
+
 
 
     Class[] holeClasses = new Class[] {
@@ -92,21 +156,6 @@ public class HoleConfig extends AppCompatActivity {
         initializeParButtons();
         initializeLabels();
         initializeButtons();
-    }
-
-    public void reloadIntentArgs(){
-        Log.i("Info: ", "Activity " + holeNumber + " Resumed!");
-        try {
-            player1Score = holeActivity.getIntent().getStringExtra("player1Score");
-            player1Name = holeActivity.getIntent().getStringExtra("player1Name");
-            Log.i("Info:", "Intent score " + player1Score);
-
-        } catch (Exception e){
-            Log.i("Error:", "Problem with getIntent()", e);
-        }
-
-        scoreView.setText(player1Score);
-        playerView.setText(player1Name);
     }
 
     public int calcScoreOnParClick(int par, EditText view){
@@ -157,41 +206,134 @@ public class HoleConfig extends AppCompatActivity {
 
     public View[] initializeLabels(){
         String idPrefix = "hole";
-        String playerSuffix = "_playerOne";
-        String hitsSuffix = "_player1Hits";
-        String scoreSuffix = "_player1Score";
+        String[] playerSuffix = new String[] {"_playerOne", "_playerTwo", "_playerThree", "_playerFour"};
+        String[] hitsSuffix = new String[] {"_player1Hits", "_player2Hits", "_player3Hits", "_player4Hits"};
+        String[] scoreSuffix = new String[] {"_player1Score", "_player2Score", "_player3Score", "_player4Score"};
 
-        playerName = idPrefix + String.valueOf(holeNumber) + playerSuffix;
-        hitsName = idPrefix + String.valueOf(holeNumber) + hitsSuffix;
-        scoreName = idPrefix + String.valueOf(holeNumber) + scoreSuffix;
+//        String playerSuffix = "_playerOne";
+//        String hitsSuffix = "_player1Hits";
+//        String scoreSuffix = "_player1Score";
 
-        playerID = holeActivity.getResources().getIdentifier(playerName, "id", holeActivity.getPackageName());
-        hitsID = holeActivity.getResources().getIdentifier(hitsName, "id", holeActivity.getPackageName());
-        scoreID = holeActivity.getResources().getIdentifier(scoreName, "id", holeActivity.getPackageName());
+        player1NameTemp = idPrefix + String.valueOf(holeNumber) + playerSuffix[0];
+        player1HitsTemp = idPrefix + String.valueOf(holeNumber) + hitsSuffix[0];
+        player1ScoreTemp = idPrefix + String.valueOf(holeNumber) + scoreSuffix[0];
 
-        playerView = holeActivity.findViewById(playerID);
-        hitsView = holeActivity.findViewById(hitsID);
-        scoreView = holeActivity.findViewById(scoreID);
+        player2NameTemp = idPrefix + String.valueOf(holeNumber) + playerSuffix[1];
+        player2HitsTemp = idPrefix + String.valueOf(holeNumber) + hitsSuffix[1];
+        player2ScoreTemp = idPrefix + String.valueOf(holeNumber) + scoreSuffix[1];
 
-        hitsView.addTextChangedListener(hitsTextWatcher);
+        player3NameTemp = idPrefix + String.valueOf(holeNumber) + playerSuffix[2];
+        player3HitsTemp = idPrefix + String.valueOf(holeNumber) + hitsSuffix[2];
+        player3ScoreTemp = idPrefix + String.valueOf(holeNumber) + scoreSuffix[2];
+
+        player4NameTemp = idPrefix + String.valueOf(holeNumber) + playerSuffix[3];
+        player4HitsTemp = idPrefix + String.valueOf(holeNumber) + hitsSuffix[3];
+        player4ScoreTemp = idPrefix + String.valueOf(holeNumber) + scoreSuffix[3];
+
+        player1ID = holeActivity.getResources().getIdentifier(player1NameTemp, "id", holeActivity.getPackageName());
+        player1HitsID = holeActivity.getResources().getIdentifier(player1HitsTemp, "id", holeActivity.getPackageName());
+        player1ScoreID = holeActivity.getResources().getIdentifier(player1ScoreTemp, "id", holeActivity.getPackageName());
+
+        player2ID = holeActivity.getResources().getIdentifier(player2NameTemp, "id", holeActivity.getPackageName());
+        player2HitsID = holeActivity.getResources().getIdentifier(player2HitsTemp, "id", holeActivity.getPackageName());
+        player2ScoreID = holeActivity.getResources().getIdentifier(player2ScoreTemp, "id", holeActivity.getPackageName());
+
+        player3ID = holeActivity.getResources().getIdentifier(player3NameTemp, "id", holeActivity.getPackageName());
+        player3HitsID = holeActivity.getResources().getIdentifier(player3HitsTemp, "id", holeActivity.getPackageName());
+        player3ScoreID = holeActivity.getResources().getIdentifier(player3ScoreTemp, "id", holeActivity.getPackageName());
+
+        player4ID = holeActivity.getResources().getIdentifier(player4NameTemp, "id", holeActivity.getPackageName());
+        player4HitsID = holeActivity.getResources().getIdentifier(player4HitsTemp, "id", holeActivity.getPackageName());
+        player4ScoreID = holeActivity.getResources().getIdentifier(player4ScoreTemp, "id", holeActivity.getPackageName());
+
+        player1View = holeActivity.findViewById(player1ID);
+        player1HitsView = holeActivity.findViewById(player1HitsID);
+        player1ScoreView = holeActivity.findViewById(player1ScoreID);
+
+        player1HitsView.addTextChangedListener(player1HitsTextWatcher);
+
+        player2View = holeActivity.findViewById(player2ID);
+        player2HitsView = holeActivity.findViewById(player2HitsID);
+        player2ScoreView = holeActivity.findViewById(player2ScoreID);
+
+        player2HitsView.addTextChangedListener(player2HitsTextWatcher);
+
+        player3View = holeActivity.findViewById(player3ID);
+        player3HitsView = holeActivity.findViewById(player3HitsID);
+        player3ScoreView = holeActivity.findViewById(player3ScoreID);
+
+        player3HitsView.addTextChangedListener(player3HitsTextWatcher);
+
+        player4View = holeActivity.findViewById(player4ID);
+        player4HitsView = holeActivity.findViewById(player4HitsID);
+        player4ScoreView = holeActivity.findViewById(player4ScoreID);
+
+        player4HitsView.addTextChangedListener(player4HitsTextWatcher);
+
+        playerViews[0] = player1View;
+        playerViews[1] = player2View;
+        playerViews[2] = player3View;
+        playerViews[3] = player4View;
 
         try {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
             player1Name = holeActivity.getIntent().getStringExtra("player1Name");
-            holeHits = holeActivity.getIntent().getIntArrayExtra("holeHits");
-            player1Hits = String.valueOf(holeHits[holeNumber -1]);
+            player1HoleHits = holeActivity.getIntent().getIntArrayExtra("player1HoleHits");
+            player1Hits = String.valueOf(player1HoleHits[holeNumber -1]);
+
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player2Score = holeActivity.getIntent().getStringExtra("player2Score");
+            player2Name = holeActivity.getIntent().getStringExtra("player2Name");
+            player2HoleHits = holeActivity.getIntent().getIntArrayExtra("player2HoleHits");
+            player2Hits = String.valueOf(player2HoleHits[holeNumber -1]);
+
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player3Score = holeActivity.getIntent().getStringExtra("player3Score");
+            player3Name = holeActivity.getIntent().getStringExtra("player3Name");
+            player3HoleHits = holeActivity.getIntent().getIntArrayExtra("player3HoleHits");
+            player3Hits = String.valueOf(player3HoleHits[holeNumber -1]);
+
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player4Score = holeActivity.getIntent().getStringExtra("player4Score");
+            player4Name = holeActivity.getIntent().getStringExtra("player4Name");
+            player4HoleHits = holeActivity.getIntent().getIntArrayExtra("player4HoleHits");
+            player4Hits = String.valueOf(player4HoleHits[holeNumber -1]);
 
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
         }
 
         // params are initialized with visibly dummy values in case they aren't passed in intent
-        hitsView.setText(player1Hits);
-        scoreView.setText(player1Score);
-        playerView.setText(player1Name);
+        player1HitsView.setText(player1Hits);
+        player1ScoreView.setText(player1Score);
+        player1View.setText(player1Name);
+
+        player2HitsView.setText(player2Hits);
+        player2ScoreView.setText(player2Score);
+        player2View.setText(player2Name);
+
+        player3HitsView.setText(player3Hits);
+        player3ScoreView.setText(player3Score);
+        player3View.setText(player3Name);
+
+        player4HitsView.setText(player4Hits);
+        player4ScoreView.setText(player4Score);
+        player4View.setText(player4Name);
 
 
-        View[] views = new View[] {playerView, hitsView, scoreView};
+        View[] views = new View[] {player1View, player1HitsView, player1ScoreView};
         return views;
     }
 
@@ -244,11 +386,14 @@ public class HoleConfig extends AppCompatActivity {
             clearButtonBackground();
             parButton.setBackgroundResource(R.drawable.par_selected);
             parButton.setTextColor(Color.parseColor("#000000")); // black
-            scoreView.setText(String.valueOf(calcScoreOnParClick(parValue, hitsView)));
+            player1ScoreView.setText(String.valueOf(calcScoreOnParClick(parValue, player1HitsView)));
+            player2ScoreView.setText(String.valueOf(calcScoreOnParClick(parValue, player2HitsView)));
+            player3ScoreView.setText(String.valueOf(calcScoreOnParClick(parValue, player3HitsView)));
+            player4ScoreView.setText(String.valueOf(calcScoreOnParClick(parValue, player4HitsView)));
         }
     };
 
-    public TextWatcher hitsTextWatcher = new TextWatcher() {
+    public TextWatcher player1HitsTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
@@ -261,7 +406,7 @@ public class HoleConfig extends AppCompatActivity {
 
             if(!inputStr.equals("")) {
                 int inputHits = Integer.parseInt(inputStr);
-                holeHits[holeNumber - 1] = inputHits;
+                player1HoleHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -275,12 +420,138 @@ public class HoleConfig extends AppCompatActivity {
                     if (foundSelectedPar){
                         int total = inputHits - parNum;
                         player1Score = String.valueOf(total);
-                        scoreView.setText(player1Score);
+                        player1ScoreView.setText(player1Score);
                         break;
                     }
                 }
             } else {
-                holeHits[holeNumber - 1] = 0;
+                player1HoleHits[holeNumber - 1] = 0;
+
+            }
+            return;
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) { }
+    };
+
+    public TextWatcher player2HitsTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            SpannableString spannableString = new SpannableString(s);
+            String inputStr = spannableString.toString();
+            player1Hits = inputStr;
+
+
+            if(!inputStr.equals("")) {
+                int inputHits = Integer.parseInt(inputStr);
+                player2HoleHits[holeNumber - 1] = inputHits;
+
+                for (int h = 0; h < numPars; h++){
+                    boolean foundSelectedPar = false;
+                    int parNum = 0;
+
+                    if (parViews[h].getBackground() != null){
+                        foundSelectedPar = true;
+                        parNum = h + 1; // offset by 1 because var h is an index
+                    }
+
+                    if (foundSelectedPar){
+                        int total = inputHits - parNum;
+                        player2Score = String.valueOf(total);
+                        player2ScoreView.setText(player2Score);
+                        break;
+                    }
+                }
+            } else {
+                player2HoleHits[holeNumber - 1] = 0;
+
+            }
+            return;
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) { }
+    };
+
+    public TextWatcher player3HitsTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            SpannableString spannableString = new SpannableString(s);
+            String inputStr = spannableString.toString();
+            player3Hits = inputStr;
+
+
+            if(!inputStr.equals("")) {
+                int inputHits = Integer.parseInt(inputStr);
+                player3HoleHits[holeNumber - 1] = inputHits;
+
+                for (int h = 0; h < numPars; h++){
+                    boolean foundSelectedPar = false;
+                    int parNum = 0;
+
+                    if (parViews[h].getBackground() != null){
+                        foundSelectedPar = true;
+                        parNum = h + 1; // offset by 1 because var h is an index
+                    }
+
+                    if (foundSelectedPar){
+                        int total = inputHits - parNum;
+                        player3Score = String.valueOf(total);
+                        player3ScoreView.setText(player3Score);
+                        break;
+                    }
+                }
+            } else {
+                player3HoleHits[holeNumber - 1] = 0;
+
+            }
+            return;
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) { }
+    };
+
+    public TextWatcher player4HitsTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            SpannableString spannableString = new SpannableString(s);
+            String inputStr = spannableString.toString();
+            player4Hits = inputStr;
+
+
+            if(!inputStr.equals("")) {
+                int inputHits = Integer.parseInt(inputStr);
+                player4HoleHits[holeNumber - 1] = inputHits;
+
+                for (int h = 0; h < numPars; h++){
+                    boolean foundSelectedPar = false;
+                    int parNum = 0;
+
+                    if (parViews[h].getBackground() != null){
+                        foundSelectedPar = true;
+                        parNum = h + 1; // offset by 1 because var h is an index
+                    }
+
+                    if (foundSelectedPar){
+                        int total = inputHits - parNum;
+                        player4Score = String.valueOf(total);
+                        player4ScoreView.setText(player4Score);
+                        break;
+                    }
+                }
+            } else {
+                player4HoleHits[holeNumber - 1] = 0;
 
             }
             return;
@@ -296,8 +567,20 @@ public class HoleConfig extends AppCompatActivity {
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
             intent.putExtra("player1Name", player1Name);
-            intent.putExtra("player1Score", scoreView.getText().toString());
-            intent.putExtra("holeHits", holeHits);
+            intent.putExtra("player1Score", player1ScoreView.getText().toString());
+            intent.putExtra("player1HoleHits", player1HoleHits);
+
+            intent.putExtra("player2Name", player2Name);
+            intent.putExtra("player2Score", player2ScoreView.getText().toString());
+            intent.putExtra("player2HoleHits", player2HoleHits);
+
+            intent.putExtra("player3Name", player3Name);
+            intent.putExtra("player3Score", player3ScoreView.getText().toString());
+            intent.putExtra("player3HoleHits", player3HoleHits);
+
+            intent.putExtra("player4Name", player4Name);
+            intent.putExtra("player4Score", player4ScoreView.getText().toString());
+            intent.putExtra("player4HoleHits", player4HoleHits);
 
             holeActivity.startActivity(intent);
         }
@@ -307,10 +590,21 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 2] );
-            player1Name = playerView.getText().toString();
             intent.putExtra("player1Name", player1Name);
-            intent.putExtra("player1Score", scoreView.getText().toString());
-            intent.putExtra("holeHits", holeHits);
+            intent.putExtra("player1Score", player1ScoreView.getText().toString());
+            intent.putExtra("player1HoleHits", player1HoleHits);
+
+            intent.putExtra("player2Name", player2Name);
+            intent.putExtra("player2Score", player2ScoreView.getText().toString());
+            intent.putExtra("player2HoleHits", player2HoleHits);
+
+            intent.putExtra("player3Name", player3Name);
+            intent.putExtra("player3Score", player3ScoreView.getText().toString());
+            intent.putExtra("player3HoleHits", player3HoleHits);
+
+            intent.putExtra("player4Name", player4Name);
+            intent.putExtra("player4Score", player4ScoreView.getText().toString());
+            intent.putExtra("player4HoleHits", player4HoleHits);
             holeActivity.startActivity(intent);
         }
     };
@@ -322,6 +616,9 @@ public class HoleConfig extends AppCompatActivity {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("p1", capitalize(player1Name));
+            bundle.putString("p2", capitalize(player2Name));
+            bundle.putString("p3", capitalize(player3Name));
+            bundle.putString("p4", capitalize(player4Name));
             bundle.putString("requestCode", String.valueOf(holeNumber - 1));
             intent.putExtras(bundle);
             holeActivity.startActivityForResult(intent, holeNumber - 1);
@@ -329,6 +626,14 @@ public class HoleConfig extends AppCompatActivity {
     };
     public String capitalize(String name){
         return name.toUpperCase();
+    }
+
+    public void updatePlayer(int player, String newName) {
+        Log.i("Test", "Called update player");
+        Log.i("the id replacing:", playerViews[player-1].getResources().getResourceName(playerViews[player-1].getId()));
+        playerViews[player-1].setText(newName);
+//        TextView view = holeActivity.findViewById(R.id.hole1_playerTwo);
+//        view.setText(newName);
     }
 
 }
