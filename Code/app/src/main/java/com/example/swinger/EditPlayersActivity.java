@@ -2,6 +2,7 @@ package com.example.swinger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -71,6 +72,28 @@ public class EditPlayersActivity extends AppCompatActivity {
             player4Name = player4.getText().toString();
             player4.setText(player4Name);
         }
+        Intent intent = new Intent(this, SettingsActivity.class);
+        Bundle bundle = new Bundle();
+        if(player1.getText().toString()!=null) {
+            bundle.putString("p1", capitalize(player1Name));
+            intent.putExtras(bundle);
+        }
+        if(player2.getText().toString()!=null) {
+            bundle.putString("p2", capitalize(player2Name));
+            intent.putExtras(bundle);
+        }
+        if(player3.getText().toString()!=null) {
+            bundle.putString("p3", capitalize(player3Name));
+            intent.putExtras(bundle);
+        }
+        if(player4.getText().toString()!=null) {
+            bundle.putString("p1", capitalize(player4Name));
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+    public String capitalize(String name){
+        return name.toUpperCase();
     }
 
 }
