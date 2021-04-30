@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
@@ -319,7 +320,13 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("p1", capitalize(player1Name));
+            intent.putExtras(bundle);
             holeActivity.startActivity(intent);
         }
     };
+    public String capitalize(String name){
+        return name.toUpperCase();
+    }
 }
