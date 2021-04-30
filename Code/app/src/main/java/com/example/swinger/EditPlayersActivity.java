@@ -2,8 +2,10 @@ package com.example.swinger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,6 +80,7 @@ public class EditPlayersActivity extends AppCompatActivity {
     public void removePlayer4(View view){
         player4.setText("");
     }
+
     public void save(View view){
         if(player1.getText().toString() != null) {
             player1Name = player1.getText().toString();
@@ -95,25 +98,32 @@ public class EditPlayersActivity extends AppCompatActivity {
             player4Name = player4.getText().toString();
             player4.setText(player4Name);
         }
+
         Intent intent = new Intent(this, SettingsActivity.class);
         Bundle bundle = new Bundle();
+
         if(player1.getText().toString()!=null) {
             bundle.putString("p1", capitalize(player1Name));
             intent.putExtras(bundle);
+            Log.i("player1", String.valueOf(player1.getText()));
         }
         if(player2.getText().toString()!=null) {
             bundle.putString("p2", capitalize(player2Name));
             intent.putExtras(bundle);
+            Log.i("player2", String.valueOf(player2.getText()));
         }
         if(player3.getText().toString()!=null) {
             bundle.putString("p3", capitalize(player3Name));
             intent.putExtras(bundle);
+            Log.i("player3", String.valueOf(player3.getText()));
         }
         if(player4.getText().toString()!=null) {
-            bundle.putString("p1", capitalize(player4Name));
+            bundle.putString("p4", capitalize(player4Name));
             intent.putExtras(bundle);
+            Log.i("player4", String.valueOf(player4.getText()));
         }
-        startActivity(intent);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     }
     public String capitalize(String name){
         return name.toUpperCase();

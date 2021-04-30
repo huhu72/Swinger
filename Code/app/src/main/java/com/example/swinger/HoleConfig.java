@@ -322,11 +322,13 @@ public class HoleConfig extends AppCompatActivity {
             Intent intent = new Intent(holeActivity.getApplicationContext(), SettingsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("p1", capitalize(player1Name));
+            bundle.putString("requestCode", String.valueOf(holeNumber - 1));
             intent.putExtras(bundle);
-            holeActivity.startActivity(intent);
+            holeActivity.startActivityForResult(intent, holeNumber - 1);
         }
     };
     public String capitalize(String name){
         return name.toUpperCase();
     }
+
 }
