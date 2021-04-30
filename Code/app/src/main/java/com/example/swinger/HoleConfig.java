@@ -44,7 +44,7 @@ public class HoleConfig extends AppCompatActivity {
     String player1Score = "0";
     String player1Name = "No Name Set!";
 
-    int[] player1HoleHits;
+    int[] player1HoleHits = new int[18];
 
     // PLAYER 2
     String player2HitsTemp = "";
@@ -63,7 +63,7 @@ public class HoleConfig extends AppCompatActivity {
     String player2Score = "0";
     String player2Name = "No Name Set!";
 
-    int[] player2HoleHits;
+    int[] player2HoleHits = new int[18];
 
     // PLAYER 3
     String player3HitsTemp = "";
@@ -82,7 +82,7 @@ public class HoleConfig extends AppCompatActivity {
     String player3Score = "0";
     String player3Name = "No Name Set!";
 
-    int[] player3HoleHits;
+    int[] player3HoleHits = new int[18];
 
     // PLAYER 4
     String player4HitsTemp = "";
@@ -101,8 +101,8 @@ public class HoleConfig extends AppCompatActivity {
     String player4Score = "0";
     String player4Name = "No Name Set!";
 
-    int[] player4HoleHits;
-    
+    int[] player4HoleHits = new int[18];
+
     String nextButtonName = "";
     int nextButtonID = 0;
     ImageView nextButtonView = null;
@@ -544,7 +544,7 @@ public class HoleConfig extends AppCompatActivity {
 
                     if (foundSelectedPar){
                         int total = inputHits - parNum;
-                        player1Score = String.valueOf(total);
+                        player3Score = String.valueOf(total);
                         player3ScoreView.setText(player3Score);
                         break;
                     }

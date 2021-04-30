@@ -80,20 +80,95 @@
         android:background="@drawable/round_rect"
         android:fontFamily="@font/paytone_one"
         android:gravity="center"
-        android:text="Tommy"
+        android:text="Player1"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hole16" />
 
+    <TextView
+        android:id="@+id/hole16_playerTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/round_rect"
+        android:fontFamily="@font/paytone_one"
+        android:gravity="center"
+        android:text="Player2"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hole16_playerOne" />
+
+    <TextView
+        android:id="@+id/hole16_playerThree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/round_rect"
+        android:fontFamily="@font/paytone_one"
+        android:gravity="center"
+        android:text="Player3"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hole16_playerTwo" />
+
+    <TextView
+        android:id="@+id/hole16_playerFour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/round_rect"
+        android:fontFamily="@font/paytone_one"
+        android:gravity="center"
+        android:text="Player4"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hole16_playerThree" />
+
     <ImageView
-        android:id="@+id/hole16_golfBall"
+        android:id="@+id/hole16_player1GolfBall"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/hole16_playerOne"
         app:layout_constraintStart_toEndOf="@+id/hole16_playerOne"
         app:layout_constraintTop_toTopOf="@+id/hole16_playerOne"
         app:srcCompat="@drawable/ic_golf_ball_black"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/hole16_player2GolfBall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_playerTwo"
+        app:layout_constraintStart_toEndOf="@+id/hole16_playerTwo"
+        app:layout_constraintTop_toTopOf="@+id/hole16_playerTwo"
+        app:srcCompat="@drawable/ic_golf_ball_red"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/hole16_player3GolfBall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_playerThree"
+        app:layout_constraintStart_toEndOf="@+id/hole16_playerThree"
+        app:layout_constraintTop_toTopOf="@+id/hole16_playerThree"
+        app:srcCompat="@drawable/ic_golf_ball_blue"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/hole16_player4GolfBall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_playerFour"
+        app:layout_constraintStart_toEndOf="@+id/hole16_playerFour"
+        app:layout_constraintTop_toTopOf="@+id/hole16_playerFour"
+        app:srcCompat="@drawable/ic_golf_ball_green"
         android:layout_marginStart="20dp"/>
 
     <EditText
@@ -105,10 +180,52 @@
         android:inputType="number"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hole16_golfBall"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player1GolfBall"
         app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
         app:layout_constraintStart_toStartOf="@+id/hitsLbl"
-        app:layout_constraintTop_toTopOf="@+id/hole16_golfBall" />
+        app:layout_constraintTop_toTopOf="@+id/hole16_player1GolfBall" />
+
+    <EditText
+        android:id="@+id/hole16_player2Hits"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player2GolfBall"
+        app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
+        app:layout_constraintStart_toStartOf="@+id/hitsLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player2GolfBall" />
+
+    <EditText
+        android:id="@+id/hole16_player3Hits"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player3GolfBall"
+        app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
+        app:layout_constraintStart_toStartOf="@+id/hitsLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player3GolfBall" />
+
+    <EditText
+        android:id="@+id/hole16_player4Hits"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player4GolfBall"
+        app:layout_constraintEnd_toEndOf="@+id/hitsLbl"
+        app:layout_constraintStart_toStartOf="@+id/hitsLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player4GolfBall" />
 
     <TextView
         android:id="@+id/hole16_player1Score"
@@ -124,14 +241,55 @@
         app:layout_constraintStart_toStartOf="@+id/scoreLbl"
         app:layout_constraintTop_toTopOf="@+id/hole16_player1Hits" />
 
+    <TextView
+        android:id="@+id/hole16_player2Score"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player2Hits"
+        app:layout_constraintEnd_toEndOf="@+id/scoreLbl"
+        app:layout_constraintStart_toStartOf="@+id/scoreLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player2Hits" />
+
+    <TextView
+        android:id="@+id/hole16_player3Score"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player3Hits"
+        app:layout_constraintEnd_toEndOf="@+id/scoreLbl"
+        app:layout_constraintStart_toStartOf="@+id/scoreLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player3Hits" />
+
+    <TextView
+        android:id="@+id/hole16_player4Score"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hole16_player4Hits"
+        app:layout_constraintEnd_toEndOf="@+id/scoreLbl"
+        app:layout_constraintStart_toStartOf="@+id/scoreLbl"
+        app:layout_constraintTop_toTopOf="@+id/hole16_player4Hits" />
+
     <Button
         android:id="@+id/hole16_settings_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -141,7 +299,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/par_rect"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="90dp"/>
 
     <TextView
         android:id="@+id/par"
@@ -231,6 +389,8 @@
         android:layout_height="63dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_media_next" />

@@ -22,7 +22,16 @@ public class SetUpActivity extends AppCompatActivity {
     public void gotoHole1(View view) {
         Intent intent = new Intent(this, Hole1Activity.class);
         intent.putExtra("player1Name", capitalize(name));
-        intent.putExtra("holeHits", holeHits);
+        intent.putExtra("player1HoleHits", holeHits);
+
+        intent.putExtra("player2Name","Player2");
+        intent.putExtra("player2HoleHits", holeHits);
+
+        intent.putExtra("player3Name", "Player3");
+        intent.putExtra("player3HoleHits", holeHits);
+
+        intent.putExtra("player4Name", "Player4");
+        intent.putExtra("player4HoleHits", holeHits);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
