@@ -30,7 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void save(View view) {
-        finish();
+        Intent intent = new Intent(this, Hole1Activity.class);
+        startActivity(intent);
     }
     public String capitalize(String name){
         return name.toUpperCase();
