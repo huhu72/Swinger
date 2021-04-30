@@ -69,8 +69,6 @@ public class EditPlayersActivity extends AppCompatActivity {
         save = findViewById(R.id.edit_players_saveBtn);
 
 
-
-
 //        removePlayer1.setOnClickListener(v -> {
 //                    removePlayer1.setVisibility(View.GONE);
 //                    player1.setVisibility(View.GONE);

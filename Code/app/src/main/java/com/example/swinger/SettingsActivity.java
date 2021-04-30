@@ -12,7 +12,10 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
-    String player1="NA";
+    String player1;
+    String player2;
+    String player3;
+    String player4;
     ArrayList<String> newPlayers = new ArrayList();
     int requestCodeReturn;
     final int settingsRequestCode = 99;
@@ -28,22 +31,37 @@ public class SettingsActivity extends AppCompatActivity {
         newPlayers.add(3, "");
 
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
-           player1 = extras.getString("p1");
-           requestCodeReturn = Integer.parseInt(extras.getString("requestCode"));
+            if (extras.containsKey("p1")){
+                player1 = extras.getString("p1");
+            }
+
+            if (extras.containsKey("p2")){
+                player2 = extras.getString("p2");
+            }
+
+            if (extras.containsKey("p3")){
+                player3 = extras.getString("p3");
+            }
+
+            if (extras.containsKey("p4")){
+                player4 = extras.getString("p4");
+            }
+
+            requestCodeReturn = Integer.parseInt(extras.getString("requestCode"));
+
         }
     }
 
-    /*
-        TO DO:
-            1. Check for all the players, not just the first
-            2. Pass all players that exist, not just the first
-            3. Inside <EditPlayersActivity />, build all players, not just the first
-     */
     public void gotoEditPlayer(View view) {
         Intent intent = new Intent(this, EditPlayersActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("p1", capitalize(player1));
+        bundle.putString("p1", player1);
+        bundle.putString("p2", player2);
+        bundle.putString("p3", player3);
+        bundle.putString("p4", player4);
+
         intent.putExtras(bundle);
         startActivityForResult(intent, settingsRequestCode);
 
