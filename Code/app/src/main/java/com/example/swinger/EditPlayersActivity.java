@@ -25,13 +25,6 @@ public class EditPlayersActivity extends AppCompatActivity {
     private EditText player3;
     private EditText player4;
 
-    private TextView addPlayer;
-    private TextView player1;
-    private TextView player2;
-    private TextView player3;
-    private TextView player4;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +66,6 @@ public class EditPlayersActivity extends AppCompatActivity {
         });
     }
 
-
-    }
     public void removePlayer1(View view){
         player1.setText("");
     }
