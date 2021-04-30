@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class HoleConfig extends AppCompatActivity {
 
@@ -38,7 +40,7 @@ public class HoleConfig extends AppCompatActivity {
 
     String player1NameTemp = "";
     int player1ID = 0;
-    TextView player1View = null;
+    TextView player1View;
 
     String player1Hits = "0";
     String player1Score = "0";
@@ -57,7 +59,7 @@ public class HoleConfig extends AppCompatActivity {
 
     String player2NameTemp = "";
     int player2ID = 0;
-    TextView player2View = null;
+    TextView player2View;
 
     String player2Hits = "0";
     String player2Score = "0";
@@ -76,7 +78,7 @@ public class HoleConfig extends AppCompatActivity {
 
     String player3NameTemp = "";
     int player3ID = 0;
-    TextView player3View = null;
+    TextView player3View;
 
     String player3Hits = "0";
     String player3Score = "0";
@@ -95,7 +97,7 @@ public class HoleConfig extends AppCompatActivity {
 
     String player4NameTemp = "";
     int player4ID = 0;
-    TextView player4View = null;
+    TextView player4View;
 
     String player4Hits = "0";
     String player4Score = "0";
@@ -116,6 +118,9 @@ public class HoleConfig extends AppCompatActivity {
     Button settingsButtonView = null;
 
     Activity holeActivity;
+    TextView[] playerViews = new TextView[4];
+
+
 
 
     Class[] holeClasses = new Class[] {
@@ -151,57 +156,6 @@ public class HoleConfig extends AppCompatActivity {
         initializeParButtons();
         initializeLabels();
         initializeButtons();
-    }
-
-    public void reloadIntentArgs(){
-        Log.i("Info: ", "Activity " + holeNumber + " Resumed!");
-        try {
-            player1Score = holeActivity.getIntent().getStringExtra("player1Score");
-            player1Name = holeActivity.getIntent().getStringExtra("player1Name");
-            Log.i("Info:", "Intent score " + player1Score);
-
-        } catch (Exception e){
-            Log.i("Error:", "Problem with getIntent()", e);
-        }
-
-        try {
-            player2Score = holeActivity.getIntent().getStringExtra("player2Score");
-            player2Name = holeActivity.getIntent().getStringExtra("player2Name");
-            Log.i("Info:", "Intent score " + player2Score);
-
-        } catch (Exception e){
-            Log.i("Error:", "Problem with getIntent()", e);
-        }
-
-        try {
-            player3Score = holeActivity.getIntent().getStringExtra("player3Score");
-            player3Name = holeActivity.getIntent().getStringExtra("player3Name");
-            Log.i("Info:", "Intent score " + player3Score);
-
-        } catch (Exception e){
-            Log.i("Error:", "Problem with getIntent()", e);
-        }
-
-        try {
-            player4Score = holeActivity.getIntent().getStringExtra("player4Score");
-            player4Name = holeActivity.getIntent().getStringExtra("player4Name");
-            Log.i("Info:", "Intent score " + player4Score);
-
-        } catch (Exception e){
-            Log.i("Error:", "Problem with getIntent()", e);
-        }
-
-        player1ScoreView.setText(player1Score);
-        player1View.setText(player1Name);
-
-        player2ScoreView.setText(player2Score);
-        player2View.setText(player2Name);
-
-        player3ScoreView.setText(player3Score);
-        player3View.setText(player3Name);
-
-        player4ScoreView.setText(player4Score);
-        player4View.setText(player4Name);
     }
 
     public int calcScoreOnParClick(int par, EditText view){
@@ -315,6 +269,11 @@ public class HoleConfig extends AppCompatActivity {
         player4ScoreView = holeActivity.findViewById(player4ScoreID);
 
         player4HitsView.addTextChangedListener(player4HitsTextWatcher);
+
+        playerViews[0] = player1View;
+        playerViews[1] = player2View;
+        playerViews[2] = player3View;
+        playerViews[3] = player4View;
 
         try {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
@@ -667,6 +626,14 @@ public class HoleConfig extends AppCompatActivity {
     };
     public String capitalize(String name){
         return name.toUpperCase();
+    }
+
+    public void updatePlayer(int player, String newName) {
+        Log.i("Test", "Called update player");
+        Log.i("the id replacing:", playerViews[player-1].getResources().getResourceName(playerViews[player-1].getId()));
+        playerViews[player-1].setText(newName);
+//        TextView view = holeActivity.findViewById(R.id.hole1_playerTwo);
+//        view.setText(newName);
     }
 
 }
