@@ -25,7 +25,7 @@ public class Hole6Activity extends AppCompatActivity {
         config.updatePlayer(2, config.player2Name);
         config.updatePlayer(3, config.player3Name);
         config.updatePlayer(4, config.player4Name);
-
+        config.reloadIntentArgs();
     }
 
     @Override

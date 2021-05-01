@@ -636,4 +636,38 @@ public class HoleConfig extends AppCompatActivity {
 //        view.setText(newName);
     }
 
+    public void reloadIntentArgs(){
+        Log.i("Info: ", "Activity " + holeNumber + " Resumed!");
+        try {
+            player1Score = holeActivity.getIntent().getStringExtra("player1Score");
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player2Score = holeActivity.getIntent().getStringExtra("player2Score");
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player3Score = holeActivity.getIntent().getStringExtra("player3Score");
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        try {
+            player4Score = holeActivity.getIntent().getStringExtra("player4Score");
+        } catch (Exception e){
+            Log.i("Error:", "Problem with getIntent()", e);
+        }
+
+        player1ScoreView.setText(player1Score);
+        player2ScoreView.setText(player2Score);
+        player3ScoreView.setText(player3Score);
+        player4ScoreView.setText(player4Score);
+
+
+    }
+
 }

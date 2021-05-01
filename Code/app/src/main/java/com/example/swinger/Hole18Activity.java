@@ -49,7 +49,7 @@ public class Hole18Activity extends AppCompatActivity {
         config.updatePlayer(2, config.player2Name);
         config.updatePlayer(3, config.player3Name);
         config.updatePlayer(4, config.player4Name);
-
+        config.reloadIntentArgs();
     }
     public void finish(View view){
         playerHits.add(0, player1Score.toString());
