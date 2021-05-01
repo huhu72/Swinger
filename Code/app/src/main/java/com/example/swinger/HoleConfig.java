@@ -26,10 +26,10 @@ public class HoleConfig extends AppCompatActivity {
     int holeNumber;
     int numPars = 6;
 
-    HashMap<Integer, Integer> player1ScoreList;
-    HashMap<Integer, Integer> player2ScoreList;
-    HashMap<Integer, Integer> player3ScoreList;
-    HashMap<Integer, Integer> player4ScoreList;
+    HashMap<Integer, Integer> player1ScoreList = new HashMap<>();
+    HashMap<Integer, Integer> player2ScoreList = new HashMap<>();
+    HashMap<Integer, Integer> player3ScoreList = new HashMap<>();
+    HashMap<Integer, Integer> player4ScoreList = new HashMap<>();
 
 
     HashMap<Integer, Integer>[] playerScoreCollection = new HashMap[] { player1ScoreList, player2ScoreList, player3ScoreList, player4ScoreList};
@@ -288,7 +288,7 @@ public class HoleConfig extends AppCompatActivity {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
             player1Name = holeActivity.getIntent().getStringExtra("player1Name");
             player1HoleHits = holeActivity.getIntent().getIntArrayExtra("player1HoleHits");
-            player1Hits = String.valueOf(player1HoleHits[holeNumber -1]);
+//            player1Hits = String.valueOf(player1HoleHits[holeNumber -1]);
 
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
@@ -298,7 +298,7 @@ public class HoleConfig extends AppCompatActivity {
             player2Score = holeActivity.getIntent().getStringExtra("player2Score");
             player2Name = holeActivity.getIntent().getStringExtra("player2Name");
             player2HoleHits = holeActivity.getIntent().getIntArrayExtra("player2HoleHits");
-            player2Hits = String.valueOf(player2HoleHits[holeNumber -1]);
+//            player2Hits = String.valueOf(player2HoleHits[holeNumber -1]);
 
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
@@ -308,7 +308,7 @@ public class HoleConfig extends AppCompatActivity {
             player3Score = holeActivity.getIntent().getStringExtra("player3Score");
             player3Name = holeActivity.getIntent().getStringExtra("player3Name");
             player3HoleHits = holeActivity.getIntent().getIntArrayExtra("player3HoleHits");
-            player3Hits = String.valueOf(player3HoleHits[holeNumber -1]);
+//            player3Hits = String.valueOf(player3HoleHits[holeNumber -1]);
 
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
@@ -318,7 +318,7 @@ public class HoleConfig extends AppCompatActivity {
             player4Score = holeActivity.getIntent().getStringExtra("player4Score");
             player4Name = holeActivity.getIntent().getStringExtra("player4Name");
             player4HoleHits = holeActivity.getIntent().getIntArrayExtra("player4HoleHits");
-            player4Hits = String.valueOf(player4HoleHits[holeNumber -1]);
+//            player4Hits = String.valueOf(player4HoleHits[holeNumber -1]);
 
         } catch (Exception e){
             Log.i("Error:", "Problem with getIntent()", e);
