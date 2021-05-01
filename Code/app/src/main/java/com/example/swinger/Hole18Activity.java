@@ -21,7 +21,7 @@ public class Hole18Activity extends AppCompatActivity {
     private ImageView player3Crown;
     private ImageView player4Crown;
     private ArrayList<String> playerHits = new ArrayList<>();
-    private int highest = 0;
+    private int lowest = 999999;
     private int winner = 0;
     private int currentPlayer = 1;
 
@@ -57,8 +57,8 @@ public class Hole18Activity extends AppCompatActivity {
         playerHits.add(2, player3Score.toString());
         playerHits.add(3, player4Score.toString());
         playerHits.forEach(score->{
-            if(Integer.parseInt(score) > highest){
-                highest = Integer.parseInt(score);
+            if(Integer.parseInt(score) < lowest){
+                lowest = Integer.parseInt(score);
                 winner = currentPlayer;
             }
             currentPlayer++;
