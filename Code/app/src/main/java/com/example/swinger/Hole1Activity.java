@@ -47,6 +47,7 @@ public class Hole1Activity extends AppCompatActivity {
         if(!config.player4Exists){
             config.deletePlayer(4);
         }
+        config.reloadIntentArgs();
     }
 
     @Override
