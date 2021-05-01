@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.HashMap;
+
 public class Hole17Activity extends AppCompatActivity {
 
 
@@ -15,7 +17,16 @@ public class Hole17Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hole17);
+        Bundle extras = this.getIntent().getExtras();
+
+        config.player1ScoreList = (HashMap<Integer, Integer>) extras.getSerializable("player1ScoreList");
+        config.player2ScoreList = (HashMap<Integer, Integer>) extras.getSerializable("player2ScoreList");
+        config.player3ScoreList = (HashMap<Integer, Integer>) extras.getSerializable("player3ScoreList");
+        config.player4ScoreList = (HashMap<Integer, Integer>) extras.getSerializable("player4ScoreList");
+
         config.buildHole(this);
+
+
     }
 
     @Override

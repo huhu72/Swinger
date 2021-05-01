@@ -18,12 +18,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class HoleConfig extends AppCompatActivity {
 
     int holeNumber;
     int numPars = 6;
+
+    HashMap<Integer, Integer> player1ScoreList;
+    HashMap<Integer, Integer> player2ScoreList;
+    HashMap<Integer, Integer> player3ScoreList;
+    HashMap<Integer, Integer> player4ScoreList;
+
+
+    HashMap<Integer, Integer>[] playerScoreCollection = new HashMap[] { player1ScoreList, player2ScoreList, player3ScoreList, player4ScoreList};
 
     String[] parNames = new String[numPars];
     int[] parIDs = new int[numPars];
@@ -403,10 +412,16 @@ public class HoleConfig extends AppCompatActivity {
             String inputStr = spannableString.toString();
             player1Hits = inputStr;
 
+            if (player1ScoreList != null && player1ScoreList.containsKey(holeNumber)){
+                player1ScoreList.replace(holeNumber, 0);
+            } else {
+                player1ScoreList.put(holeNumber, 0);
+            }
 
-            if(!inputStr.equals("")) {
+            int thisHoleScore = 0;
+
+            if(!inputStr.equals("")){
                 int inputHits = Integer.parseInt(inputStr);
-                player1HoleHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -418,16 +433,41 @@ public class HoleConfig extends AppCompatActivity {
                     }
 
                     if (foundSelectedPar){
-                        int total = inputHits - parNum;
-                        player1Score = String.valueOf(total);
-                        player1ScoreView.setText(player1Score);
+                        thisHoleScore = inputHits - parNum;
+                        player1ScoreList.replace(holeNumber, thisHoleScore);
+                        player1ScoreView.setText(String.valueOf(thisHoleScore));
                         break;
                     }
                 }
-            } else {
-                player1HoleHits[holeNumber - 1] = 0;
 
+            } else {
+                player1ScoreList.replace(holeNumber, 0);
             }
+
+//            if(!inputStr.equals("")) {
+//                int inputHits = Integer.parseInt(inputStr);
+//                player1HoleHits[holeNumber - 1] = inputHits;
+//
+//                for (int h = 0; h < numPars; h++){
+//                    boolean foundSelectedPar = false;
+//                    int parNum = 0;
+//
+//                    if (parViews[h].getBackground() != null){
+//                        foundSelectedPar = true;
+//                        parNum = h + 1; // offset by 1 because var h is an index
+//                    }
+//
+//                    if (foundSelectedPar){
+//                        int total = inputHits - parNum;
+//                        player1Score = String.valueOf(total);
+//                        player1ScoreView.setText(player1Score);
+//                        break;
+//                    }
+//                }
+//            } else {
+//                player1HoleHits[holeNumber - 1] = 0;
+//
+//            }
             return;
         }
 
@@ -443,12 +483,18 @@ public class HoleConfig extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             SpannableString spannableString = new SpannableString(s);
             String inputStr = spannableString.toString();
-            player1Hits = inputStr;
+            player2Hits = inputStr;
 
+            if (player2ScoreList != null && player2ScoreList.containsKey(holeNumber)){
+                player2ScoreList.replace(holeNumber, 0);
+            } else {
+                player2ScoreList.put(holeNumber, 0);
+            }
 
-            if(!inputStr.equals("")) {
+            int thisHoleScore = 0;
+
+            if(!inputStr.equals("")){
                 int inputHits = Integer.parseInt(inputStr);
-                player2HoleHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -460,16 +506,41 @@ public class HoleConfig extends AppCompatActivity {
                     }
 
                     if (foundSelectedPar){
-                        int total = inputHits - parNum;
-                        player2Score = String.valueOf(total);
-                        player2ScoreView.setText(player2Score);
+                        thisHoleScore = inputHits - parNum;
+                        player2ScoreList.replace(holeNumber, thisHoleScore);
+                        player2ScoreView.setText(String.valueOf(thisHoleScore));
                         break;
                     }
                 }
-            } else {
-                player2HoleHits[holeNumber - 1] = 0;
 
+            } else {
+                player2ScoreList.replace(holeNumber, 0);
             }
+
+//            if(!inputStr.equals("")) {
+//                int inputHits = Integer.parseInt(inputStr);
+//                player1HoleHits[holeNumber - 1] = inputHits;
+//
+//                for (int h = 0; h < numPars; h++){
+//                    boolean foundSelectedPar = false;
+//                    int parNum = 0;
+//
+//                    if (parViews[h].getBackground() != null){
+//                        foundSelectedPar = true;
+//                        parNum = h + 1; // offset by 1 because var h is an index
+//                    }
+//
+//                    if (foundSelectedPar){
+//                        int total = inputHits - parNum;
+//                        player1Score = String.valueOf(total);
+//                        player1ScoreView.setText(player1Score);
+//                        break;
+//                    }
+//                }
+//            } else {
+//                player1HoleHits[holeNumber - 1] = 0;
+//
+//            }
             return;
         }
 
@@ -487,10 +558,16 @@ public class HoleConfig extends AppCompatActivity {
             String inputStr = spannableString.toString();
             player3Hits = inputStr;
 
+            if (player3ScoreList != null && player3ScoreList.containsKey(holeNumber)){
+                player3ScoreList.replace(holeNumber, 0);
+            } else {
+                player3ScoreList.put(holeNumber, 0);
+            }
 
-            if(!inputStr.equals("")) {
+            int thisHoleScore = 0;
+
+            if(!inputStr.equals("")){
                 int inputHits = Integer.parseInt(inputStr);
-                player3HoleHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -502,16 +579,41 @@ public class HoleConfig extends AppCompatActivity {
                     }
 
                     if (foundSelectedPar){
-                        int total = inputHits - parNum;
-                        player3Score = String.valueOf(total);
-                        player3ScoreView.setText(player3Score);
+                        thisHoleScore = inputHits - parNum;
+                        player3ScoreList.replace(holeNumber, thisHoleScore);
+                        player3ScoreView.setText(String.valueOf(thisHoleScore));
                         break;
                     }
                 }
-            } else {
-                player3HoleHits[holeNumber - 1] = 0;
 
+            } else {
+                player3ScoreList.replace(holeNumber, 0);
             }
+
+//            if(!inputStr.equals("")) {
+//                int inputHits = Integer.parseInt(inputStr);
+//                player1HoleHits[holeNumber - 1] = inputHits;
+//
+//                for (int h = 0; h < numPars; h++){
+//                    boolean foundSelectedPar = false;
+//                    int parNum = 0;
+//
+//                    if (parViews[h].getBackground() != null){
+//                        foundSelectedPar = true;
+//                        parNum = h + 1; // offset by 1 because var h is an index
+//                    }
+//
+//                    if (foundSelectedPar){
+//                        int total = inputHits - parNum;
+//                        player1Score = String.valueOf(total);
+//                        player1ScoreView.setText(player1Score);
+//                        break;
+//                    }
+//                }
+//            } else {
+//                player1HoleHits[holeNumber - 1] = 0;
+//
+//            }
             return;
         }
 
@@ -529,10 +631,16 @@ public class HoleConfig extends AppCompatActivity {
             String inputStr = spannableString.toString();
             player4Hits = inputStr;
 
+            if (player4ScoreList != null && player4ScoreList.containsKey(holeNumber)){
+                player4ScoreList.replace(holeNumber, 0);
+            } else {
+                player4ScoreList.put(holeNumber, 0);
+            }
 
-            if(!inputStr.equals("")) {
+            int thisHoleScore = 0;
+
+            if(!inputStr.equals("")){
                 int inputHits = Integer.parseInt(inputStr);
-                player4HoleHits[holeNumber - 1] = inputHits;
 
                 for (int h = 0; h < numPars; h++){
                     boolean foundSelectedPar = false;
@@ -544,16 +652,41 @@ public class HoleConfig extends AppCompatActivity {
                     }
 
                     if (foundSelectedPar){
-                        int total = inputHits - parNum;
-                        player4Score = String.valueOf(total);
-                        player4ScoreView.setText(player4Score);
+                        thisHoleScore = inputHits - parNum;
+                        player4ScoreList.replace(holeNumber, thisHoleScore);
+                        player4ScoreView.setText(String.valueOf(thisHoleScore));
                         break;
                     }
                 }
-            } else {
-                player4HoleHits[holeNumber - 1] = 0;
 
+            } else {
+                player4ScoreList.replace(holeNumber, 0);
             }
+
+//            if(!inputStr.equals("")) {
+//                int inputHits = Integer.parseInt(inputStr);
+//                player1HoleHits[holeNumber - 1] = inputHits;
+//
+//                for (int h = 0; h < numPars; h++){
+//                    boolean foundSelectedPar = false;
+//                    int parNum = 0;
+//
+//                    if (parViews[h].getBackground() != null){
+//                        foundSelectedPar = true;
+//                        parNum = h + 1; // offset by 1 because var h is an index
+//                    }
+//
+//                    if (foundSelectedPar){
+//                        int total = inputHits - parNum;
+//                        player1Score = String.valueOf(total);
+//                        player1ScoreView.setText(player1Score);
+//                        break;
+//                    }
+//                }
+//            } else {
+//                player1HoleHits[holeNumber - 1] = 0;
+//
+//            }
             return;
         }
 
@@ -566,21 +699,27 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber]);
+
+            intent.putExtra("player1ScoreList", player1ScoreList);
+            intent.putExtra("player2ScoreList", player2ScoreList);
+            intent.putExtra("player3ScoreList", player3ScoreList);
+            intent.putExtra("player4ScoreList", player4ScoreList);
+
             intent.putExtra("player1Name", player1Name);
-            intent.putExtra("player1Score", player1ScoreView.getText().toString());
-            intent.putExtra("player1HoleHits", player1HoleHits);
+//            intent.putExtra("player1Score", player1ScoreView.getText().toString());
+//            intent.putExtra("player1HoleHits", player1HoleHits);
 
             intent.putExtra("player2Name", player2Name);
-            intent.putExtra("player2Score", player2ScoreView.getText().toString());
-            intent.putExtra("player2HoleHits", player2HoleHits);
+//            intent.putExtra("player2Score", player2ScoreView.getText().toString());
+//            intent.putExtra("player2HoleHits", player2HoleHits);
 
             intent.putExtra("player3Name", player3Name);
-            intent.putExtra("player3Score", player3ScoreView.getText().toString());
-            intent.putExtra("player3HoleHits", player3HoleHits);
+//            intent.putExtra("player3Score", player3ScoreView.getText().toString());
+//            intent.putExtra("player3HoleHits", player3HoleHits);
 
             intent.putExtra("player4Name", player4Name);
-            intent.putExtra("player4Score", player4ScoreView.getText().toString());
-            intent.putExtra("player4HoleHits", player4HoleHits);
+//            intent.putExtra("player4Score", player4ScoreView.getText().toString());
+//            intent.putExtra("player4HoleHits", player4HoleHits);
 
             holeActivity.startActivity(intent);
         }
@@ -590,21 +729,28 @@ public class HoleConfig extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(holeActivity.getApplicationContext(), holeClasses[holeNumber - 2] );
+
+            intent.putExtra("player1ScoreList", player1ScoreList);
+            intent.putExtra("player2ScoreList", player2ScoreList);
+            intent.putExtra("player3ScoreList", player3ScoreList);
+            intent.putExtra("player4ScoreList", player4ScoreList);
+
             intent.putExtra("player1Name", player1Name);
-            intent.putExtra("player1Score", player1ScoreView.getText().toString());
-            intent.putExtra("player1HoleHits", player1HoleHits);
+//            intent.putExtra("player1Score", player1ScoreView.getText().toString());
+//            intent.putExtra("player1HoleHits", player1HoleHits);
 
             intent.putExtra("player2Name", player2Name);
-            intent.putExtra("player2Score", player2ScoreView.getText().toString());
-            intent.putExtra("player2HoleHits", player2HoleHits);
+//            intent.putExtra("player2Score", player2ScoreView.getText().toString());
+//            intent.putExtra("player2HoleHits", player2HoleHits);
 
             intent.putExtra("player3Name", player3Name);
-            intent.putExtra("player3Score", player3ScoreView.getText().toString());
-            intent.putExtra("player3HoleHits", player3HoleHits);
+//            intent.putExtra("player3Score", player3ScoreView.getText().toString());
+//            intent.putExtra("player3HoleHits", player3HoleHits);
 
             intent.putExtra("player4Name", player4Name);
-            intent.putExtra("player4Score", player4ScoreView.getText().toString());
-            intent.putExtra("player4HoleHits", player4HoleHits);
+//            intent.putExtra("player4Score", player4ScoreView.getText().toString());
+//            intent.putExtra("player4HoleHits", player4HoleHits);
+
             holeActivity.startActivity(intent);
         }
     };
