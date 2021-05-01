@@ -25,6 +25,13 @@ public class HoleConfig extends AppCompatActivity {
     int holeNumber;
     int numPars = 6;
 
+
+    boolean player1Exists = true;
+    boolean player2Exists = true;
+    boolean player3Exists = true;
+    boolean player4Exists = true;
+
+
     String[] parNames = new String[numPars];
     int[] parIDs = new int[numPars];
     Button[] parViews = new Button[numPars];
@@ -119,6 +126,8 @@ public class HoleConfig extends AppCompatActivity {
 
     Activity holeActivity;
     TextView[] playerViews = new TextView[4];
+    EditText[] playerHits = new EditText[4];
+    TextView[] playerScores = new TextView[4];
 
 
 
@@ -274,6 +283,17 @@ public class HoleConfig extends AppCompatActivity {
         playerViews[1] = player2View;
         playerViews[2] = player3View;
         playerViews[3] = player4View;
+
+        playerHits[0] = player1HitsView;
+        playerHits[1] = player2HitsView;
+        playerHits[2] = player3HitsView;
+        playerHits[3] = player4HitsView;
+
+        playerScores[0] = player1ScoreView;
+        playerScores[1] = player2ScoreView;
+        playerScores[2] = player3ScoreView;
+        playerScores[3] = player4ScoreView;
+
 
         try {
             player1Score = holeActivity.getIntent().getStringExtra("player1Score");
@@ -619,6 +639,10 @@ public class HoleConfig extends AppCompatActivity {
             bundle.putString("p2", capitalize(player2Name));
             bundle.putString("p3", capitalize(player3Name));
             bundle.putString("p4", capitalize(player4Name));
+            bundle.putBoolean("player1Exists", player1Exists);
+            bundle.putBoolean("player2Exists", player2Exists);
+            bundle.putBoolean("player3Exists", player3Exists);
+            bundle.putBoolean("player4Exists", player4Exists);
             bundle.putString("requestCode", String.valueOf(holeNumber - 1));
             intent.putExtras(bundle);
             holeActivity.startActivityForResult(intent, holeNumber - 1);
@@ -634,6 +658,13 @@ public class HoleConfig extends AppCompatActivity {
         playerViews[player-1].setText(newName);
 //        TextView view = holeActivity.findViewById(R.id.hole1_playerTwo);
 //        view.setText(newName);
+    }
+
+    public void deletePlayer(int player){
+        Log.i("Delete Player", "Player Been deleted");
+        playerViews[player-1].setVisibility(View.GONE);
+        playerHits[player-1].setVisibility(View.GONE);
+        playerScores[player-1].setVisibility(View.GONE);
     }
 
 }

@@ -12,6 +12,12 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
+    boolean player1Exists;
+    boolean player2Exists;
+    boolean player3Exists;
+    boolean player4Exists;
+
+
     String player1;
     String player2;
     String player3;
@@ -49,18 +55,29 @@ public class SettingsActivity extends AppCompatActivity {
                 player4 = extras.getString("p4");
             }
 
+            player1Exists = extras.getBoolean("player1Exists");
+            player2Exists = extras.getBoolean("player2Exists");
+            player3Exists = extras.getBoolean("player3Exists");
+            player4Exists = extras.getBoolean("player4Exists");
+
             requestCodeReturn = Integer.parseInt(extras.getString("requestCode"));
 
         }
     }
 
     public void gotoEditPlayer(View view) {
+        Bundle extras = getIntent().getExtras();
         Intent intent = new Intent(this, EditPlayersActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("p1", player1);
         bundle.putString("p2", player2);
         bundle.putString("p3", player3);
         bundle.putString("p4", player4);
+
+        bundle.putBoolean("player1Exists", extras.getBoolean("player1Exists"));
+        bundle.putBoolean("player2Exists", extras.getBoolean("player2Exists"));
+        bundle.putBoolean("player3Exists", extras.getBoolean("player3Exists"));
+        bundle.putBoolean("player4Exists", extras.getBoolean("player4Exists"));
 
         intent.putExtras(bundle);
         startActivityForResult(intent, settingsRequestCode);
@@ -88,6 +105,12 @@ public class SettingsActivity extends AppCompatActivity {
             data.putExtras(bundle);
         }
 
+        bundle.putBoolean("player1Exists", player1Exists);
+        bundle.putBoolean("player2Exists", player2Exists);
+        bundle.putBoolean("player3Exists", player3Exists);
+        bundle.putBoolean("player4Exists", player4Exists);
+        data.putExtras(bundle);
+
         setResult(Activity.RESULT_OK, data);
         finish();
     }
@@ -105,6 +128,12 @@ public class SettingsActivity extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK && extras != null) {
             Log.i("p1 extras", extras.getString("p1"));
             Log.i("p2 extras", extras.getString("p2"));
+
+            player1Exists = extras.getBoolean("player1Exists");
+            player2Exists = extras.getBoolean("player2Exists");
+            player3Exists = extras.getBoolean("player3Exists");
+            player4Exists = extras.getBoolean("player4Exists");
+
                 if (extras.containsKey("p1")){
                     newPlayers.set(0, extras.getString("p1"));
                 }

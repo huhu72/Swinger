@@ -26,6 +26,27 @@ public class Hole1Activity extends AppCompatActivity {
         config.updatePlayer(3, config.player3Name);
         config.updatePlayer(4, config.player4Name);
 
+        Log.i("Hole 1 return Player 1 on Resume", String.valueOf(config.player1Exists));
+        Log.i("Hole 1 return Player 2 on Resume", String.valueOf(config.player2Exists));
+        Log.i("Hole 1 return Player 3 on Resume", String.valueOf(config.player3Exists));
+        Log.i("Hole 1 return Player 4 on Resume", String.valueOf(config.player4Exists));
+
+        if(!config.player1Exists){
+            config.deletePlayer(1);
+        }
+
+        if(!config.player2Exists){
+            config.deletePlayer(2);
+
+        }
+
+        if(!config.player3Exists){
+            config.deletePlayer(3);
+        }
+
+        if(!config.player4Exists){
+            config.deletePlayer(4);
+        }
     }
 
     @Override
@@ -53,6 +74,31 @@ public class Hole1Activity extends AppCompatActivity {
             if (extras.containsKey("p4")){
                 Log.i("new player 4 name", extras.getString("p4"));
                 config.player4Name = extras.getString("p4");
+            }
+
+            Log.i("Hole 1 return player 1", String.valueOf(config.player1Exists));
+            if(extras.containsKey("player1Exists")){
+                config.player1Exists = extras.getBoolean("player1Exists");
+                Log.i("Hole 1 return player 1 in if statement", String.valueOf(config.player1Exists));
+            }
+
+            Log.i("Hole 1 return player 2", String.valueOf(config.player3Exists));
+            if(extras.containsKey("player2Exists")){
+                config.player2Exists = extras.getBoolean("player2Exists");
+                Log.i("Hole 1 return player 2 in if statement", String.valueOf(config.player2Exists));
+
+            }
+//
+            Log.i("Hole 1 return player 3", String.valueOf(config.player3Exists));
+            if(extras.containsKey("player3Exists")){
+                config.player3Exists = extras.getBoolean("player3Exists");
+                Log.i("Hole 1 return player 3 in if statement", String.valueOf(config.player3Exists));
+            }
+////
+            Log.i("Hole 1 return player 4", String.valueOf(config.player4Exists));
+            if(extras.containsKey("player4Exists")){
+                config.player4Exists = extras.getBoolean("player4Exists");
+                Log.i("Hole 1 return player 4 in if statement", String.valueOf(config.player4Exists));
             }
 
             Log.i("holeconfig log", "finish transmit");
