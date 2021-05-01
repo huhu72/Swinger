@@ -5,9 +5,25 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Hole18Activity extends AppCompatActivity {
-
+    private TextView player1Score;
+    private TextView player2Score;
+    private TextView player3Score;
+    private TextView player4Score;
+    private ImageView player1Crown;
+    private ImageView player2Crown;
+    private ImageView player3Crown;
+    private ImageView player4Crown;
+    private ArrayList<Integer> playerHits = new ArrayList<>();
+    private int highest = 0;
+    private int winner = 0;
+    private int currentPlayer = 1;
 
     public HoleConfig config = new HoleConfig(1);
 
@@ -16,6 +32,14 @@ public class Hole18Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hole1);
         config.buildHole(this);
+        player1Score = findViewById(R.id.hole18_player1Score);
+        player2Score = findViewById(R.id.hole18_player2Score);
+        player3Score = findViewById(R.id.hole18_player3Score);
+        player4Score = findViewById(R.id.hole18_player4Score);
+        player1Crown = findViewById(R.id.player1Crown);
+        player2Crown = findViewById(R.id.player2Crown);
+        player3Crown = findViewById(R.id.player3Crown);
+        player4Crown = findViewById(R.id.player4Crown);
     }
 
     @Override
@@ -25,6 +49,35 @@ public class Hole18Activity extends AppCompatActivity {
         config.updatePlayer(2, config.player2Name);
         config.updatePlayer(3, config.player3Name);
         config.updatePlayer(4, config.player4Name);
+
+    }
+    public void finish(View view){
+        playerHits.add(0, Integer.parseInt(player1Score.toString()));
+        playerHits.add(1, Integer.parseInt(player2Score.toString()));
+        playerHits.add(2, Integer.parseInt(player3Score.toString()));
+        playerHits.add(3, Integer.parseInt(player4Score.toString()));
+        playerHits.forEach(score->{
+            if(score > highest){
+                highest = score;
+                winner = currentPlayer;
+            }
+            currentPlayer++;
+        });
+        switch (winner){
+            case 1:
+                player1Crown.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                player2Crown.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                player3Crown.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                player4Crown.setVisibility(View.VISIBLE);
+                break;
+        }
+        Log.i("Winner", playerHits.toString());
 
     }
 
