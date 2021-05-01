@@ -20,7 +20,7 @@ public class Hole18Activity extends AppCompatActivity {
     private ImageView player2Crown;
     private ImageView player3Crown;
     private ImageView player4Crown;
-    private ArrayList<Integer> playerHits = new ArrayList<>();
+    private ArrayList<String> playerHits = new ArrayList<>();
     private int highest = 0;
     private int winner = 0;
     private int currentPlayer = 1;
@@ -52,13 +52,13 @@ public class Hole18Activity extends AppCompatActivity {
 
     }
     public void finish(View view){
-        playerHits.add(0, Integer.parseInt(player1Score.toString()));
-        playerHits.add(1, Integer.parseInt(player2Score.toString()));
-        playerHits.add(2, Integer.parseInt(player3Score.toString()));
-        playerHits.add(3, Integer.parseInt(player4Score.toString()));
+        playerHits.add(0, player1Score.toString());
+       /* playerHits.add(1, player2Score.toString());
+        playerHits.add(2, player3Score.toString());
+        playerHits.add(3, player4Score.toString());
         playerHits.forEach(score->{
-            if(score > highest){
-                highest = score;
+            if(Integer.parseInt(score) > highest){
+                highest = Integer.parseInt(score);
                 winner = currentPlayer;
             }
             currentPlayer++;
@@ -76,8 +76,9 @@ public class Hole18Activity extends AppCompatActivity {
             case 4:
                 player4Crown.setVisibility(View.VISIBLE);
                 break;
-        }
-        Log.i("Winner", playerHits.toString());
+        }*/
+        player1Crown.setVisibility(View.VISIBLE);
+        Log.i("Winner", playerHits.get(0));
 
     }
 
