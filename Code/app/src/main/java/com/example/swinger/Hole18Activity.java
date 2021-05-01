@@ -25,12 +25,12 @@ public class Hole18Activity extends AppCompatActivity {
     private int winner = 0;
     private int currentPlayer = 1;
 
-    public HoleConfig config = new HoleConfig(1);
+    public HoleConfig config = new HoleConfig(18);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hole1);
+        setContentView(R.layout.activity_hole18);
         config.buildHole(this);
         player1Score = findViewById(R.id.hole18_player1Score);
         player2Score = findViewById(R.id.hole18_player2Score);

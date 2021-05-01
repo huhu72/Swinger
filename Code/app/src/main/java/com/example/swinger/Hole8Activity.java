@@ -9,12 +9,12 @@ import android.util.Log;
 public class Hole8Activity extends AppCompatActivity {
 
 
-    public HoleConfig config = new HoleConfig(1);
+    public HoleConfig config = new HoleConfig(8);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hole1);
+        setContentView(R.layout.activity_hole8);
         config.buildHole(this);
     }
 
