@@ -9,12 +9,12 @@ import android.util.Log;
 public class Hole14Activity extends AppCompatActivity {
 
 
-    public HoleConfig config = new HoleConfig(1);
+    public HoleConfig config = new HoleConfig(14);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hole1);
+        setContentView(R.layout.activity_hole14);
         config.buildHole(this);
     }
 
@@ -25,7 +25,7 @@ public class Hole14Activity extends AppCompatActivity {
         config.updatePlayer(2, config.player2Name);
         config.updatePlayer(3, config.player3Name);
         config.updatePlayer(4, config.player4Name);
-
+        config.reloadIntentArgs();
     }
 
     @Override

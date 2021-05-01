@@ -667,6 +667,7 @@ public class HoleConfig extends AppCompatActivity {
         playerScores[player-1].setVisibility(View.GONE);
     }
 
+
     public void reloadIntentArgs(){
         Log.i("Info: ", "Activity " + holeNumber + " Resumed!");
         try {
