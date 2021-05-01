@@ -91,7 +91,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_rect"
         android:fontFamily="@font/paytone_one"
         android:gravity="center"
@@ -106,7 +106,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_rect"
         android:fontFamily="@font/paytone_one"
         android:gravity="center"
@@ -121,7 +121,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_rect"
         android:fontFamily="@font/paytone_one"
         android:gravity="center"
@@ -132,6 +132,14 @@
         app:layout_constraintTop_toBottomOf="@+id/hole18_playerThree" />
 
     <ImageView
+        android:id="@+id/player1Crown"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/hole18_player1GolfBall"
+        app:layout_constraintStart_toStartOf="@+id/hole18_player1GolfBall"
+        app:srcCompat="@drawable/ic_crown"
+        android:visibility="gone"/>
+    <ImageView
         android:id="@+id/hole18_player1GolfBall"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -140,6 +148,15 @@
         app:layout_constraintTop_toTopOf="@+id/hole18_playerOne"
         app:srcCompat="@drawable/ic_golf_ball_black"
         android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/player2Crown"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/hole18_player2GolfBall"
+        app:layout_constraintStart_toStartOf="@+id/hole18_player2GolfBall"
+        app:srcCompat="@drawable/ic_crown"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/hole18_player2GolfBall"
@@ -152,6 +169,15 @@
         android:layout_marginStart="20dp"/>
 
     <ImageView
+        android:id="@+id/player3Crown"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/hole18_player3GolfBall"
+        app:layout_constraintStart_toStartOf="@+id/hole18_player3GolfBall"
+        app:srcCompat="@drawable/ic_crown"
+        android:visibility="gone"/>
+
+    <ImageView
         android:id="@+id/hole18_player3GolfBall"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -160,6 +186,15 @@
         app:layout_constraintTop_toTopOf="@+id/hole18_playerThree"
         app:srcCompat="@drawable/ic_golf_ball_blue"
         android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/player4Crown"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/hole18_player4GolfBall"
+        app:layout_constraintStart_toStartOf="@+id/hole18_player4GolfBall"
+        app:srcCompat="@drawable/ic_crown"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/hole18_player4GolfBall"
@@ -392,5 +427,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <Button
+        android:id="@+id/finishBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/green"
+        android:fontFamily="@font/paytone_one"
+        android:onClick="finish"
+        android:text="Finish"
+        app:layout_constraintBottom_toBottomOf="@+id/hole18_prevHole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hole18_prevHole" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
